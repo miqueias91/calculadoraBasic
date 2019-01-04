@@ -38,7 +38,7 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
-    <plugin name="cordova.custom.plugins.exitapp" spec="~1.0.0" />
+    <!--<plugin name="cordova.custom.plugins.exitapp" spec="~1.0.0" />-->
     <plugin name="kr.co.joycorp.cordova.exitapp" spec="~1.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="onesignal-cordova-plugin" spec="^2.4.2" />
