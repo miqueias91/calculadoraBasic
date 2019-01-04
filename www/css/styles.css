@@ -51,6 +51,15 @@
     font-weight: bold;
 	border: 0;
 }
+textarea:disabled, input:disabled {
+    background-color: #fff;
+}
+input:disabled, textarea:disabled {
+    color: #000;
+}
+.disabled, [disabled] {
+    opacity: 1;
+}
 .anuncio {
 	height: 50px;
 	width: 100%;
