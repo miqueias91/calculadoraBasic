@@ -18,6 +18,7 @@ $$(document).on('deviceready', function() {
 var num = '0';
 var num1 = 0;
 var num2 = 0;
+var sinal = '+';
 var existenum1 = false;
 var opc_arit = '';
 var caracteresDigitados = 0;
@@ -31,11 +32,15 @@ $( ".btn-limpartudo" ).click(function() {
     ponto = false;
     num1 = 0;
     num2 = 0;
+    sinal = '+';
     opc_arit = '';
     caracteresDigitados = 0;
     resultado = 0;
     calculofinalizado = false;
     existenum1 = false;           
+
+    $('#sinal').html('');
+    $('#sinal').attr('num', '+');
 
     $('#num1').html('');
     $('#num1').attr('num', '0');
@@ -123,11 +128,9 @@ $( ".btn-calculo" ).click(function() {
             resultado = parseFloat(num1) * parseFloat(num2);
         }
 
-        num = 0;
-        num1 = 0;
-        num2 = 0;
         resultado = resultado.toFixed(2);
         resultado = resultado.split(".");
+        console.log(resultado)
 
         //Se depois do ponto o valor for igual a 0, não utilizo
         if (parseInt(resultado[1]) == 0) {
@@ -139,22 +142,30 @@ $( ".btn-calculo" ).click(function() {
         $('#valor-visor').html(resultado);
         calculofinalizado = true; 
         existenum1 = true;
+
+        $('#operador').html(opc_arit); 
     }
     else {
-        //Se num1 for maior q 0, significa que o usuario que apenas trocar o operador
-        if (parseFloat(num1) > 0) {
-            opc_arit = $(this).attr('num');            
+        //Se num1 for diferente q 0, significa que o usuario que apenas trocar o operador
+        if (parseFloat(num1) != 0) {
+            opc_arit = $(this).attr('num');
+            $('#num1').html(num1);
+            $('#num1').attr('num', num1);
+            $('#operador').html(opc_arit);
+            num = 0;
+            $('#valor-visor').html('0');   
         }
         else{
-            num1 = $("#valor-visor").val();                
-            opc_arit = $(this).attr('num'); 
+            num1 = $("#valor-visor").val(); 
+            opc_arit = $(this).attr('num');
             existenum1 = true;
+
+            $('#num1').html(num1);
+            $('#num1').attr('num', num1);
+            $('#operador').html(opc_arit);
+            num = 0;
+            $('#valor-visor').html('0');  
         }
-        $('#num1').html(num1);
-        $('#num1').attr('num', num1);
-        $('#operador').html(opc_arit);
-        num = 0;
-        $('#valor-visor').html('0');            
     }
 
 });
