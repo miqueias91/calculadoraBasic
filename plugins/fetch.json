@@ -26,7 +26,15 @@
   "cordova-plugin-dialogs": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-dialogs@^2.0.1"
+      "id": "cordova-plugin-dialogs"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-exitapp": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-exitapp"
     },
     "is_top_level": true,
     "variables": {}
@@ -34,7 +42,7 @@
   "kr.co.joycorp.cordova.exitapp": {
     "source": {
       "type": "registry",
-      "id": "kr.co.joycorp.cordova.exitapp@~1.0.0"
+      "id": "cordova-plugin-exitapp2@^1.0.4"
     },
     "is_top_level": true,
     "variables": {}
@@ -42,7 +50,7 @@
   "cordova-plugin-splashscreen": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-splashscreen@^5.0.2"
+      "id": "cordova-plugin-splashscreen@5.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -50,15 +58,7 @@
   "onesignal-cordova-plugin": {
     "source": {
       "type": "registry",
-      "id": "onesignal-cordova-plugin@^2.4.2"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova.custom.plugins.exitapp": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-exitapp@~1.0.0"
+      "id": "onesignal-cordova-plugin"
     },
     "is_top_level": true,
     "variables": {}
