@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.calculadorabasic" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="OneSignalPush">
+        <param name="android-package" value="com.plugin.gcm.OneSignalPush" />
+    </feature>
+    <feature name="ExitApp">
+        <param name="android-package" value="kr.co.joycorp.cordova.exitapp.ExitApp" />
+    </feature>
+    <feature name="ExitApp">
+        <param name="android-package" value="cordova.custom.plugins.exitapp.ExitApp" />
+    </feature>
+    <name>Calculadora Basic</name>
+    <description>
+        Calculadora para realizar operações aritméticas simples.
+    </description>
+    <author email="miqueiasmcaetano@gmail.com" href="https://miqueiasmcaetano.000webhostapp.com">
+        Miqueias Matias Caetano
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <splash src="./www/img/Default@2x~universal~anyany.png" />
+    <splash src="./www/img/Default@2x~universal~comany.png" />
+    <splash src="./www/img/Default@2x~universal~comcom.png" />
+    <splash src="./www/img/Default@3x~universal~anyany.png" />
+    <splash src="./www/img/Default@3x~universal~anycom.png" />
+    <splash src="./www/img/Default@3x~universal~comany.png" />
+    <allow-intent href="market:*" />
+    <icon density="ldpi" src="./www/img/logo.png" />
+    <icon density="mdpi" src="./www/img/logo.png" />
+    <icon density="hdpi" src="./www/img/logo.png" />
+    <icon density="xhdpi" src="./www/img/logo.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="windows-appx-target" value="8.1-phone" />
+    <preference name="WindowsToastCapable" value="true" />
+</widget>

@@ -1,0 +1,33 @@
+{
+  "name": "com.phonegap.calculadorabasic",
+  "version": "1.0.0",
+  "displayName": "Calculadora Basic",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-dialogs": {},
+      "cordova.custom.plugins.exitapp": {},
+      "kr.co.joycorp.cordova.exitapp": {},
+      "cordova-plugin-splashscreen": {},
+      "onesignal-cordova-plugin": {},
+      "cordova-plugin-exitapp": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^7.0.0",
+    "cordova-plugin-console": "~1.0.1",
+    "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-exitapp": "^1.0.0",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "~1.0.1",
+    "cordova-plugin-whitelist": "~1.2.0",
+    "cordova.custom.plugins.exitapp": "~1.0.0",
+    "kr.co.joycorp.cordova.exitapp": "^1.0.2",
+    "onesignal-cordova-plugin": "^2.4.6"
+  }
+}
