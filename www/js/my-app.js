@@ -15,7 +15,7 @@ $$(document).on('deviceready', function() {
     console.log("Device is ready!");
 });
 
-var num = '0';
+var num = '';
 var num1 = 0;
 var num2 = 0;
 var sinal = '+';
@@ -28,7 +28,7 @@ var calculofinalizado = false;
 
 //Limpa a tela
 $( ".btn-limpartudo" ).click(function() {
-    num = 0;
+    num = '';
     ponto = false;
     num1 = 0;
     num2 = 0;
@@ -49,27 +49,43 @@ $( ".btn-limpartudo" ).click(function() {
     $('#num2').attr('num', '0');
 
     $('#operador').html('');
-    $('#valor-visor').html('0');
+    $('#valor-visor').html('');
 });
 
 //Limpa ultimo caracter da tela
 $( ".btn-limparultimo" ).click(function() {
-    if (num != '') {
-        num = num.substring(0, num.length - 1);  
-        if(num.indexOf(".") == -1){
-            ponto = false;
-        }          
-    }
-
-    if (num == '') {
-        num = '0';
-    }
-
-    if(!ponto){
+    if(calculofinalizado){
+        num =resultado;
         $('#valor-visor').html(parseFloat(num));
+        num1 = 0;
+        num2 = 0;
+        sinal = '+';
+        opc_arit = '';
+        caracteresDigitados = 0;
+        calculofinalizado = false;
+        existenum1 = false;
+        $('#sinal').html('');
+        $('#sinal').attr('num', '+');
+        $('#num1').html('');
+        $('#num1').attr('num', '0');
+        $('#num2').html('');
+        $('#num2').attr('num', '0');
+        $('#operador').html('');
     }
-    else {
-        $('#valor-visor').html(num);
+    else{        
+        if (num != '') {
+            num = num.substring(0, num.length - 1);  
+            if(num.indexOf(".") == -1){
+                ponto = false;
+            }          
+        }
+
+        if(!ponto){
+            $('#valor-visor').html(parseFloat(num));
+        }
+        else {
+            $('#valor-visor').html(num);
+        }
     }
 });
 
@@ -77,6 +93,9 @@ $( ".btn-limparultimo" ).click(function() {
 $( ".btn-ponto" ).click(function() {
     //insere apenas um ponto no visor
     if (!ponto) {
+        if(num == ''){ 
+            num = 0;           
+        }
         num = parseFloat(num);            
         num += '.';                
         $('#valor-visor').html(num);
@@ -87,11 +106,10 @@ $( ".btn-ponto" ).click(function() {
 $( ".btn-numero" ).click(function() {
     //pego o tamanho da string no visor
     caracteresDigitados = parseInt($("#valor-visor").val().length);
-
     //Se ainda a quantidade de digitos for menor que 9, deixo inserir
     if(parseInt(caracteresDigitados) < 8){
-        num += $(this).attr('num')
-        $('#valor-visor').html(parseFloat(num));
+        num += $(this).attr('num');
+        $('#valor-visor').html(num);
     }
 
     //Se num1 e num2 for igual a 0 significa que o usuario esta realizando um novo calculo, então limpo historico
@@ -100,7 +118,6 @@ $( ".btn-numero" ).click(function() {
         $('#num1').attr('num', '0');
         $('#num2').html('');
         $('#num2').attr('num', '0');
-
         $('#operador').html('');
         calculofinalizado = false;
     }
@@ -108,66 +125,35 @@ $( ".btn-numero" ).click(function() {
 
 //Tipo da operacao aritmetica
 $( ".btn-calculo" ).click(function() {
-
     if (calculofinalizado) {
-        num1 = $('#num1').attr('num');
-        num2 = $('#num2').attr('num');
+        num1 = resultado;
+        $('#num1').attr('num', num1);
+        $('#num1').html(num1);
+        $('#num2').html('');
+        $('#num2').attr('num', '0');
         opc_arit = $(this).attr('num'); 
-        $('#operador').html(opc_arit);
-
-        if (opc_arit == '+') {
-            resultado = parseFloat(num1) + parseFloat(num2);
-        }
-        if (opc_arit == '-') {
-            resultado = parseFloat(num1) - parseFloat(num2);
-        }
-        if (opc_arit == '/') {
-            resultado = parseFloat(num1) / parseFloat(num2);
-        }
-        if (opc_arit == '*') {
-            resultado = parseFloat(num1) * parseFloat(num2);
-        }
-
-        resultado = resultado.toFixed(2);
-        resultado = resultado.split(".");
-        console.log(resultado)
-
-        //Se depois do ponto o valor for igual a 0, não utilizo
-        if (parseInt(resultado[1]) == 0) {
-            resultado = resultado[0];
-        }
-        else{                
-            resultado = resultado[0]+'.'+resultado[1];
-        }
-        $('#valor-visor').html(resultado);
-        calculofinalizado = true; 
         existenum1 = true;
-
-        $('#operador').html(opc_arit); 
+        calculofinalizado = false;
+        $('#operador').html(opc_arit);
+        num = '';
+        $('#valor-visor').html(num); 
     }
     else {
-        //Se num1 for diferente q 0, significa que o usuario que apenas trocar o operador
-        if (parseFloat(num1) != 0) {
-            opc_arit = $(this).attr('num');
-            $('#num1').html(num1);
-            $('#num1').attr('num', num1);
-            $('#operador').html(opc_arit);
+        if (num == '') {
             num = 0;
-            $('#valor-visor').html('0');   
         }
-        else{
+        if (num > 0) {
             num1 = $("#valor-visor").val(); 
             opc_arit = $(this).attr('num');
             existenum1 = true;
-
             $('#num1').html(num1);
             $('#num1').attr('num', num1);
             $('#operador').html(opc_arit);
-            num = 0;
-            $('#valor-visor').html('0');  
+            num = '';
+            $('#valor-visor').html(num);
         }
+        num = '';
     }
-
 });
 
 //Calculo
@@ -190,7 +176,7 @@ $( ".btn-igual" ).click(function() {
             resultado = parseFloat(num1) * parseFloat(num2);
         }
 
-        num = 0;
+        num = '';
         num1 = 0;
         num2 = 0;
 
