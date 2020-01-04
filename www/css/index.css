@@ -18,7 +18,7 @@ body {
     padding:0px;
     width:100%;
 }
-div {
+div, ons-list-header, label {
     font-family:'BurbankBigCondensed-Black', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif!important;
 }
 .toolbar--material {
@@ -42,11 +42,11 @@ ons-fab.fab--material{
     opacity: 0.6!important;
 }
 .page--material__background {
-    background-image: url(../img/fundo.png)!important;
-    background-color: #F5F5F5!important;
-    background-position: bottom!important;
+    /*background-image: url(../img/fundo.png)!important;*/
+    background-color: #FFF!important;
+    /*background-position: bottom!important;
     background-repeat: no-repeat!important;
-    background-size: cover!important;
+    background-size: cover!important;*/
 }
 .tabbar--material__border {
     background-color: #704031!important;

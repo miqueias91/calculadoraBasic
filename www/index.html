@@ -6,6 +6,7 @@
     <meta name="mobile-web-app-capable" content="yes" />
 
     <!-- CSS dependencies -->
+    <link rel="stylesheet" href="fontawesome-free-5.1.0-web/css/all.css" />
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
     <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
     <link rel="stylesheet" href="css/index.css" />
@@ -34,8 +35,6 @@
         </ons-toolbar>
         <ons-tabbar swipeable id="appTabbar" position="auto">
             <ons-tab label="Versão 1.0.1" page="home.html" active></ons-tab>
-            <!--<ons-tab label="Antigo Testamento" page="antigoTestamento.html"></ons-tab>
-            <ons-tab label="Novo Testamento" page="novoTestamento.html"></ons-tab>-->
         </ons-tabbar>
 
         <script>
@@ -108,8 +107,8 @@
             </div>
             <div class="center"></div>
         </ons-toolbar>
-    <ons-card onclick="fn.pushPage({'id': 'antigoTestamento.html', 'title': 'Antigo Testamento'})">
-        <div class="title" style="color: #F5F5F5;">Antigo Testamento</div>
+    <ons-card onclick="fn.pushPage({'id': 'quiz.html', 'title': 'Conhecimentos Gerais Bíblicos||conhecimentosGeraisBiblicos'})">
+        <div class="title" style="color: #F5F5F5;">Conhecimentos Gerais Bíblicos</div>
     </ons-card>
     <ons-card onclick="fn.pushPage({'id': 'novoTestamento.html', 'title': 'Novo Testamento'})">
         <div class="title" style="color: #F5F5F5;">Novo Testamento</div>
@@ -133,6 +132,47 @@
       ons-card {
         cursor: pointer;
         color: #704031;
+      }
+
+      .card__title,
+      .card--material__title {
+        font-size: 20px;
+      }
+    </style>
+  </ons-page>
+</template>
+
+<template id="quiz.html">
+  <ons-page>
+        <ons-toolbar id="quiz_">
+            <div class="left">
+                <ons-back-button>Quiz da Bíblia Resposta</ons-back-button>
+            </div>
+            <div class="center"></div>
+        </ons-toolbar>
+        <ons-list id="textoquiz">
+        </ons-list>
+
+    <script>
+        ons.getScriptPage().onInit = function () {
+            var dados = this.data.title.split('||'); 
+            this.querySelector('#quiz_ div.center').textContent = dados[0];
+            app.buscaPergunta(dados[1], num_perg);
+        }
+    </script>
+    <style>
+        .button-margin {
+            margin: 6px 0;
+        }
+      .intro {
+        text-align: center;
+        padding: 0 20px;
+        margin-top: 40px;
+      }
+
+      ons-card {
+        cursor: pointer;
+        color: #549A7D;
       }
 
       .card__title,

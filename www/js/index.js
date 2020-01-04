@@ -1,4 +1,5 @@
 var timeout = 5000;
+var num_perg = 0;
 // Pega a lista já cadastrada, se não houver vira um array vazio
 window.fn = {};
 window.fn.toggleMenu = function () {
@@ -57,221 +58,125 @@ var app = {
       
     }
   },
-  retirarMarcador: function(search_array, array) {
-    for(var i=0; i<array.length; i++) {
-        if(array[i] === search_array) {
-          var indice = array.indexOf(search_array);
-          array.splice(indice, 1);
-        }
-    }
-    var lista_marcadores = JSON.parse(localStorage.getItem('lista-marcadores') || '[]');
-    localStorage.removeItem(lista_marcadores);
-    localStorage.setItem("lista-marcadores", JSON.stringify(array));
-  },
-  incluirMarcador: function(search_array) {
-    array = JSON.parse(localStorage.getItem('lista-marcadores'));
-    if (array) {
-      for(var i=0; i<array.length; i++) {
-          if(array[i] === search_array) {
-            return true;
-          }
-        return false;
-      }   
-      return false;   
-    }
-    return false;
-  },  
-  retirarCapitulo: function(search_array, array) {
-    for(var i=0; i<array.length; i++) {
-        if(array[i] === search_array) {
-          var indice = array.indexOf(search_array);
-          array.splice(indice, 1);
-        }
-    }
-    var lista_capitulos = JSON.parse(localStorage.getItem('lista-capitulos') || '[]');
-    localStorage.removeItem(lista_capitulos);
-    localStorage.setItem("lista-capitulos", JSON.stringify(array));
-  },
-  incluirCapitulo: function(search_array) {
-    array = JSON.parse(localStorage.getItem('lista-capitulos'));
-    if (array) {
-      for(var i=0; i<array.length; i++) {
-          if(array[i] === search_array) {
-            return true;
-          }
-        return false;
-      }   
-      return false;   
-    }
-    return false;
-  },  
-  buscaTexto: function(version,livro,capitulo) {
-    $("#textoLivro").html('');
-    var version = version || "nvi";
+  buscaPergunta: function(quiz,num_pergunta) {
+    $("#textoquiz").html('');
+    var quiz = quiz || "conhecimentosGeraisBiblicos";
     var selector = this;
     var texts = [];
 
     $.ajax({
       type : "GET",
-      url : "js/"+version+".json",
+      url : "js/"+quiz+".json",
       dataType : "json",
+      /*error: function (request, status, erro) {
+        alert("Problema ocorrido: " + status + "\nDescição: " + erro);
+        console.log(request)
+      },*/
       success : function(data){
         $(selector).each(function(){
-          var ref = livro+""+capitulo+".1-200";
-          var reg = new RegExp('([0-9]?[a-zA-Z]{2,3})([0-9]+)[\.|:]([0-9]+)-?([0-9]{1,3})?');
-          var regex = reg.exec(ref);                    
-          var myBook = null;
+          var ref = num_pergunta;
+          var pergunta = null;
+          var respostas = null;
+          var resposta = null;
+          var total_perguntas = 0;
           var obj = {
-            ref : ref,
-            book : regex[1].toLowerCase(),
-            chapter : parseInt(regex[2]),
-            text : ""
+            id : num_pergunta,
+            opcoes : ""
           };
 
-          for(i in data){
-            if(data[i].abbrev == obj.book){
-                myBook = data[i];
+
+         for(i in data){
+            total_perguntas++
+            if(i == obj.id){
+                pergunta = data[i]['pergunta'];
+                respostas = data[i]['opcoes'];
+                resposta = data[i]['resposta'];
             }
           }
-          var start = parseInt(regex[3]);
-          var end = parseInt(regex[4]) || parseInt(regex[3]);
-
-
-          /*for(var i = start; i <=  end; i++){
-            if (myBook.chapters[obj.chapter - 1][capitulo][i]) {
-                obj.text += '<ons-list-item><p style="font-size: 15px;"><span style="font-weight:bold;">'+i+'</span>&nbsp;'+myBook.chapters[obj.chapter - 1][capitulo][i] + "</p></ons-list-item>";
-            }
-          }*/
-
-          for (var i in myBook.chapters[obj.chapter - 1][parseInt(capitulo)]) {
-            if (myBook.chapters[obj.chapter - 1][capitulo][i]) {
-              var marcado = 0;
-              var capitulo_marcado = 0;
-              var background = '#f5f5f5';
-              var existe_marcado = app.incluirMarcador(livro+'||'+capitulo+'.'+i);
-              var existe_capitulo = app.incluirCapitulo(livro+' '+capitulo);
-
-              if (existe_marcado) {
-                marcado = 1;
-                background = 'yellow';
+          if (pergunta) {            
+            obj.opcoes = '<ons-list-header style="font-size: 30px;">'+pergunta+'</ons-list-header>';
+            for (var i in respostas) {
+              if (respostas[i]) {
+                obj.opcoes += 
+                  '<ons-list-item tappable style="font-size: 20px;">'+
+                  '    <label class="left">'+
+                  '      <ons-radio class="quiz_" input-id="quiz'+i+'" value="'+respostas[i]+'"></ons-radio>'+
+                  '    </label>'+
+                  '    <label for="quiz'+i+'" class="center">'+respostas[i]+'</label>'+
+                  '</ons-list-item>';
               }
+            }
+          }
+          obj.opcoes +=
+            '<ons-list-item tappable modifier="longdivider" style="display: none;">'+
+            '    <label class="left">'+
+            '      <ons-radio class="quiz_" input-id="quiz_" value=""></ons-radio>'+
+            '    </label>'+
+            '    <label for="quiz_" class="center">nenhum</label>'+
+            '</ons-list-item>';
 
-              if (existe_capitulo) {
-                capitulo_marcado = 1;
+          obj.opcoes +=
+            '<section style="margin: 20px">'+
+              '  <ons-button modifier="large" class="button-margin responder">RESPONDER</ons-button>'+
+              '  <ons-row>'+
+              '      <ons-col style="margin-right: 10px;">'+
+              '          <ons-button modifier="large" class="button-margin pular">PULAR</ons-button>'+
+              '      </ons-col>'+
+              '      <ons-col>'+
+              '          <ons-button modifier="large" class="button-margin eliminar">ELIMINAR</ons-button>'+
+              '      </ons-col>'+
+              '  </ons-row>'+
+            '</section>';
+          $("#textoquiz").html(obj.opcoes);
+
+          var currentId = 'quiz_';
+          var currentValue = '';
+          const radios = document.querySelectorAll('.quiz_')
+          for (var i = 0; i < radios.length; i++) {
+            var radio = radios[i];
+            radio.addEventListener('change', function (event) {
+              if (event.target.value !== currentValue) {
+                  document.getElementById(currentId).checked = false;
+                  currentId = event.target.id;
+                  currentValue = event.target.value;
               }
+            })
+          }
 
-              obj.text += '<ons-list-item>'+
-                            '<p style="font-size: 20px;text-align:justify;line-height: 25px;background:'+background+'"  id="txt_versiculo'+livro+'_'+capitulo+'_'+i+'" class="txt_versiculo" livro="'+livro+'" num_capitulo="'+capitulo+'" num_versiculo="'+i+'" marcado="'+marcado+'">'+
-                              '<span style="font-weight:bold;">'+i+'</span>'+
-                              '&nbsp;&nbsp;'+myBook.chapters[obj.chapter - 1][capitulo][i] + 
-                            '</p>'+
-                          '</ons-list-item>';
+          $( ".responder" ).click(function() { 
+            console.log(currentValue)
+            if (currentValue != resposta) {
+              ons.notification.alert({
+                message: 'Resposta errada!',
+                title: 'Mensagem',
+              });
             }
-          }
-          obj.text += '<br><br><section style="margin: 16px"><ons-button capitulo_marcado="'+capitulo_marcado+'" modifier="large" class="button-margin marcar_capitulo" livro_marcar="'+livro+'" num_capitulo_marcar="'+capitulo+'">MARCAR CAPÍTULO COMO LIDO</ons-button></section>'
-          $("#textoLivro").html(obj.text);
-        });
-
-        $( ".marcar_capitulo" ).click(function() {
-          var capitulo_marcar = $(this).attr('livro_marcar')+" "+$(this).attr('num_capitulo_marcar');
-          capitulo = $(this).attr('capitulo_marcado');
-
-          if (capitulo == 0) {
-            $(this).attr('capitulo_marcado',1);
-            // Adiciona pessoa ao cadastro
-            var lista_capitulos = JSON.parse(localStorage.getItem('lista-capitulos') || '[]');
-            lista_capitulos.push(capitulo_marcar);
-            // Salva a lista alterada
-            localStorage.setItem("lista-capitulos", JSON.stringify(lista_capitulos));
-            ons.notification.toast('Capítulo marcado como lido.', { buttonLabel: 'Ok', timeout: 1500 });
-          }
-          else{
-            $(this).attr('capitulo_marcado',0);
-            lista_capitulos = JSON.parse(localStorage.getItem('lista-capitulos'));
-            app.retirarCapitulo(capitulo_marcar, lista_capitulos);
-            ons.notification.toast('Capítulo desmarcado como lido.', { buttonLabel: 'Ok', timeout: 1500 });
-          }
-
-        });
-
-
-        $( ".txt_versiculo" ).click(function() {
-          marcado = $(this).attr('marcado');
-          var id = $(this).attr('id');
-          var versiculo = $(this).attr('livro')+"||"+$(this).attr('num_capitulo')+'.'+$(this).attr('num_versiculo')
-
-          if (marcado==0) {
-              $('#'+id).attr('marcado',1);
-              $('#'+id).css("background","yellow");
-              // Adiciona pessoa ao cadastro
-              var lista_marcadores = JSON.parse(localStorage.getItem('lista-marcadores') || '[]');
-
-              lista_marcadores.push(versiculo);
-              // Salva a lista alterada
-              localStorage.setItem("lista-marcadores", JSON.stringify(lista_marcadores));
-          }
-          else{
-              $(this).attr('marcado',0);
-              $(this).css("background","#f5f5f5");
-              lista_marcadores = JSON.parse(localStorage.getItem('lista-marcadores'));
-              app.retirarMarcador(versiculo, lista_marcadores);
-          }      
-        });
-      }
-    });
-  },
-  buscaVersiculo: function(version,livro_capitulo_versiculo, id) {
-    $("#textoLivro").html('');
-    var version = version || "nvi";
-    var selector = this;
-    var texts = [];
-    var dados0 = livro_capitulo_versiculo.split('||');
-    var livro = dados0[0];
-    var dados1 = dados0[1].split('.');
-    var capitulo = dados1[0];
-    var versiculo = dados1[1];
-          //console.log(versiculo)
-
-
-    $.ajax({
-      type : "GET",
-      url : "js/"+version+".json",
-      dataType : "json",
-      success : function(data){
-        $(selector).each(function(){
-          var ref = livro+""+capitulo+"."+versiculo;
-          //console.log(ref)
-          var reg = new RegExp('([0-9]?[a-zA-Z]{2,3})([0-9]+)[\.|:]([0-9]+)-?([0-9]{1,3})?');
-          var regex = reg.exec(ref);                    
-          var myBook = null;
-          var obj_v = {
-            ref : ref,
-            book : regex[1].toLowerCase(),
-            chapter : parseInt(regex[2]),
-            text : ""
-          };
-
-          for(i in data){
-            if(data[i].abbrev == obj_v.book){
-                myBook = data[i];
+            else{
+              ons.notification.alert({
+                message: 'Resposta certa!',
+                title: 'Mensagem',
+                callback: function (index) {
+                  if (0 == index) {
+                    num_perg++;
+                    if (num_perg < total_perguntas) {              
+                      app.buscaPergunta(quiz, num_perg);
+                    }
+                  }
+                  else{
+                    console.log(2);
+                  }
+                }
+              });
             }
-          }
-          var start = parseInt(regex[3]);
-          var end = parseInt(regex[4]) || parseInt(regex[3]);
+          });
 
-
-          for(var i = start; i <=  end; i++){
-            if (myBook.chapters[obj_v.chapter - 1][capitulo][i]) {
-                obj_v.text += '<ons-list-item>'+
-                  '<p style="font-size: 20px;line-height:30px;text-align:justify">'+
-                    myBook.chapters[obj_v.chapter - 1][capitulo][i] +
-                  '</p>'+
-                  '<p style="font-size: 15px;">'+livro.toUpperCase()+' '+capitulo+':'+i+'</p>'+
-                '</ons-list-item>';
+          $( ".pular" ).click(function() { 
+            num_perg++;
+            if (num_perg < total_perguntas) {              
+              app.buscaPergunta(quiz, num_perg);
             }
-          }
-          $("#"+id).append(obj_v.text);
-        });
+          });
+        });        
       }
     });
   }

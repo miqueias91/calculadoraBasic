@@ -1,0 +1,101 @@
+[
+    {
+    	"pergunta":"Como é o nome do filho do casamento de Abraão com Sara?", 
+    	"opcoes":[
+    		"a) Ismael",
+    		"b) Jafé", 
+    		"c) Jacó", 
+    		"d) Isaque", 
+    		"e) Esaú"
+    	],
+    	"resposta":"d) Isaque"
+    },
+    {
+    	"pergunta":"Como era o nome da bisavó de Davi?", 
+    	"opcoes":[
+            "a) Ester",
+            "b) Sarai",
+            "c) Rute",
+            "d) Noemi",
+            "e) Boaz"
+    	],
+    	"resposta":"c) Rute"
+    },
+    {
+    	"pergunta":"Quantos Chifres tem um demônio?", 
+    	"opcoes":[
+            "a) Um",
+            "b) Dois",
+            "c) Três",
+            "d) Quatro",
+            "e) Nenhum"
+    	],
+    	"resposta":"e) Nenhum"
+    },
+    {
+    	"pergunta":"Quem escreveu os livros (da bíblia): Gênesis, Êxodo, Levítico, Números e Deuteronômio?", 
+    	"opcoes":[
+            "a) Paulo, Pedro, Mateus, João e Marcos, respectivamente",
+            "b) Davi, Saul, Jônatas, Samuel e Jó, respectivamente",
+            "c) Abraão e Ló",
+            "d) Moisés",
+            "e) Jacó e Esaú"
+    	],
+    	"resposta":"d) Moisés"
+    },
+    {
+    	"pergunta":"Quantos anos Adão viveu?", 
+    	"opcoes":[
+            "a) 33",
+            "b) 120",
+            "c) 57",
+            "d) 77",
+            "e) 930"
+    	],
+    	"resposta":"e) 930"
+    },
+    {
+    	"pergunta":"Como é o nome do homem que teve a maior idade do mundo?", 
+    	"opcoes":[
+            "a) Jarede",
+            "b) Noé",
+            "c) Matusalém",
+            "d) Adão",
+            "e) Sete"
+    	],
+    	"resposta":"c) Matusalém"
+    },
+    {
+    	"pergunta":"Quem reconstruiu Jerusalém depois de ela ter sido destruida pelos Babilônios?", 
+    	"opcoes":[
+            "a) Neemias",
+            "b) Esdras",
+            "c) Davi",
+            "d) Salomão",
+            "e) Artaxerxes"
+    	],
+    	"resposta":"a) Neemias"
+    },
+    {
+    	"pergunta":"Davi disse à igreja: \"Quem esta disposto a dar ofertas a Deus por conta própria?\". Depois disso quanto o templo arrecadou de ofertas para a reconstrução do templo?", 
+    	"opcoes":[
+            "a) 160Kg de ouro, 340Kg de Prata",
+            "b) 100Kg de ouro, 250Kg de Prata",
+            "c) 500Kg de ouro, 1t de prata",
+            "d) 1t de ouro, 2.5t de prata",
+            "e) 160t de ouro, 340t de prata"
+    	],
+    	"resposta":"e) 160t de ouro, 340t de prata"
+    },
+    {
+    	"pergunta":"Jesus percorreu toda a Judéia pregando:", 
+    	"opcoes":[
+            "a) \"Mudem de religião\"",
+            "b) \"Dêem-me suas ofertas e dízimos\"",
+            "c) \"Não faltem aos cultos\"",
+            "d) \"Terrenos no céu à venda!\"",
+            "e) \"Chegou a Hora, e o reino de Deus esta perto! Arrependam-se dos seus pecados e creiam no evangelho.\""
+    	],
+    	"resposta":"e) \"Chegou a Hora, e o reino de Deus esta perto! Arrependam-se dos seus pecados e creiam no evangelho.\""
+    }
+  ]
