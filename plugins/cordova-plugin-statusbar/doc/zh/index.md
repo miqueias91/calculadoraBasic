@@ -199,7 +199,7 @@
 
 此外支援 CSS 速記屬性。
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
+    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

@@ -55,7 +55,7 @@ Android 5 + pautas especifican utilizando un color diferente para la barra de es
 
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#333");
+    StatusBar.backgroundColorByHexString("#549A7D");
 }
 ```
 
@@ -212,7 +212,7 @@ Establece el color de fondo de la barra de estado por una cadena hexadecimal.
 
 Propiedades CSS abreviada también son compatibles.
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
+    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

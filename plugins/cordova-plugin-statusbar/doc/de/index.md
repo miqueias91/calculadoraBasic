@@ -199,7 +199,7 @@ Legt die Hintergrundfarbe der Statusbar von eine hexadezimale Zeichenfolge fest.
 
 CSS-Kurzschrift-Eigenschaften werden ebenfalls unterstützt.
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
+    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

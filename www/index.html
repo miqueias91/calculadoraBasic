@@ -1,148 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="app" ng-csp>
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
--->
-    <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
 
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="css/index.css" />
 
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
+    <!-- JS dependencies (order matters!) -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.3.3.1.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
 
-    <!-- Your app title -->
-    <title>Calculadora Basic</title>
-
-    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
-        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
-     -->
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="fontawesome-free-5.1.0-web/css/all.css">
-    <link rel="stylesheet" href="fontawesome-free-5.1.0-web/css/solid.css">
-    <link rel="stylesheet" href="fontawesome-free-5.1.0-web/css/fontawesome.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Quiz da Bíblia</title>
 </head>
 
 <body>
-    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-    <div class="statusbar-overlay"></div>
+<ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
+    <ons-page>
+        <ons-splitter id="appSplitter">
+            <ons-splitter-content page="tabbar.html"></ons-splitter-content>
+        </ons-splitter>
+    </ons-page>
+</ons-navigator>
 
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <p>
-                O objetivo é a agilidade em realizar operações aritméticas simples e do cotidiano. Por enquanto apenas as quatro operações basicas estão disponíveis.
-            </p>
+<template id="tabbar.html">
+    <ons-page id="tabbar-page" class="">
+        <ons-toolbar id="tabbar_">
+            <div class="center"><center>Quiz da Bíblia</center></div>
+        </ons-toolbar>
+        <ons-tabbar swipeable id="appTabbar" position="auto">
+            <ons-tab label="Versão 1.0.1" page="home.html" active></ons-tab>
+            <!--<ons-tab label="Antigo Testamento" page="antigoTestamento.html"></ons-tab>
+            <ons-tab label="Novo Testamento" page="novoTestamento.html"></ons-tab>-->
+        </ons-tabbar>
 
-            <p>Adquira nossa Calculadora PRO, livre de anúncios</p>
+        <script>
+          ons.getScriptPage().addEventListener('prechange', function(event) {
+            if (event.target.matches('#appTabbar')) {
+              event.currentTarget.querySelector('#tabbar_ .center center').innerHTML = 'Quiz da Bíblia';
+            }
+          });
+        </script>
+    </ons-page>
+</template>
 
-            <br><br>
-            <p class="text-center" style="color: #7f7f7f">Desenvolvido por Miquéias Matias Caetano - 2019</p>
-        </div>
-    </div>
+<!-- MODAL DE AGUARDE -->
+<ons-modal id="modal-aguarde">
+    <p style="text-align: center">
+        <ons-icon icon="fa-spinner" spin></ons-icon>
+        <br><br>
+    </p>
+</ons-modal>
 
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Calculadora Basic</div>
-                    <div class="right">
-                        <!--
-                          Right link contains only icon - additional "icon-only" class
-                          Additional "open-panel" class tells app to open panel when we click on this link
-                        -->
-                        <a style="color: #fff;font-size: 25px;" href="#" class="link icon-only open-panel"><i class="fas fa-info-circle"></i></a>
-                    </div>
-                </div>
+<template id="home.html">
+  <ons-page>
+    <ons-card onclick="fn.pushPage({'id': 'jogar.html', 'title': 'Jogar'})">
+      <div class="title titulo_menu"><i class="fas fa-play"></i><br>JOGAR</div>
+    </ons-card>
+
+
+    <ons-row>
+        <ons-col>
+            <ons-card onclick="fn.pushPage({'id': 'score.html', 'title': 'Score'})">
+              <div class="title titulo_menu"><i class="fas fa-tachometer-alt"></i><br>SCORE</div>
+            </ons-card>
+        </ons-col>
+ 
+        <ons-col>
+            <ons-card onclick="fn.loadLink('https://play.google.com/store/apps/collection/cluster?clp=igNKChkKEzU4MzY0OTEwMzM3MTQyMDQzODIQCBgDEisKJWNvbS5waG9uZWdhcC5naXJpYXNlc3RhZG9zYnJhc2lsZWlyb3MQARgDGAE%3D:S:ANO1ljIUr74&gsr=Ck2KA0oKGQoTNTgzNjQ5MTAzMzcxNDIwNDM4MhAIGAMSKwolY29tLnBob25lZ2FwLmdpcmlhc2VzdGFkb3NicmFzaWxlaXJvcxABGAMYAQ%3D%3D:S:ANO1ljJSHsA')">
+              <div class="title titulo_menu"><i class="fab fa-google-play"></i><br>APP'S</div>
+            </ons-card>
+        </ons-col>
+    </ons-row>
+    <ons-card onclick="fn.pushPage({'id': 'sair.html', 'title': 'Buttons'})">
+      <div class="title titulo_menu"><i class="fas fa-door-open"></i><br>SAIR</div>
+    </ons-card>
+
+    <style>
+      .intro {
+        text-align: center;
+        padding: 0 20px;
+        margin-top: 40px;
+      }
+
+      ons-card {
+        cursor: pointer;
+        color: #549A7D;
+      }
+
+      .card__title,
+      .card--material__title {
+        font-size: 20px;
+      }
+    </style>
+  </ons-page>
+</template>
+
+<template id="jogar.html">
+  <ons-page>
+        <ons-toolbar id="jogar_">
+            <div class="left">
+                <ons-back-button>Jogar</ons-back-button>
             </div>
-            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
-                <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
-                    <!-- Scrollable page content -->
-                    <div class="page-content">
-                        <div class="content-block">                           
-                            <div class="visor">
-                                <div style="height: 20px;padding-left: 10px; font-weight: bold;">
-                                    <span id="num1" num="0"></span>
-                                    <span id="operador"></span>
-                                    <span id="num2" num="0"></span>                                    
-                                </div>
-                                <textarea disabled="1" id="valor-visor"></textarea>
-                            </div>                     
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="content-block">  
-                    <div class="container">                                
-                        <div class="row">
-                            <div num="7" class="col-xs-2 btn-numero btn btn-sete"><p>7</p></div>
-                            <div num="8" class="col-xs-2 btn-numero btn btn-oito"><p>8</p></div>
-                            <div num="9" class="col-xs-2 btn-numero btn btn-nove"><p>9</p></div>
-                            <div class="col-xs-2 btn btn-limparultimo"><p><i class="fas fa-backspace"></i></p></div>
-                            <div class="col-xs-4 btn btn-limpartudo"><p>C</p></div>
-                        </div>
-                        <div class="row">
-                            <div num="4" class="col-xs-2 btn-numero btn btn-quatro"><p>4</p></div>
-                            <div num="5" class="col-xs-2 btn-numero btn btn-cinco"><p>5</p></div>
-                            <div num="6" class="col-xs-2 btn-numero btn btn-seis"><p>6</p></div>
-                            <div num="/" class="col-xs-2 btn-calculo btn btn-dividir"><p>/</p></div>
-                            <div num="*" class="col-xs-4 btn-calculo btn btn-multiplicar"><p>*</p></div>
-                        </div>
-                        <div class="row">
-                            <div num="1" class="col-xs-2 btn-numero btn btn-um"><p>1</p></div>
-                            <div num="2" class="col-xs-2 btn-numero btn btn-dois"><p>2</p></div>
-                            <div num="3" class="col-xs-2 btn-numero btn btn-tres"><p>3</p></div>
-                            <div num="-" class="col-xs-2 btn-calculo btn btn-subtrair"><p>-</p></div>
-                            <div num="+" class="col-xs-4 btn-calculo btn btn-somar"><p>+</p></div>
-                        </div>
-                        <div class="row">
-                            <div num="0" class="col-4 btn-numero btn btn-zero"><p>0</p></div>
-                            <div num="." class="col-xs-4 btn btn-ponto"><p>.</p></div>
-                            <div num="=" class="col-4 btn btn-igual"><p>=</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="anuncio"></div>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        app.initialize();
+            <div class="center"></div>
+        </ons-toolbar>
+    <ons-card onclick="fn.pushPage({'id': 'antigoTestamento.html', 'title': 'Antigo Testamento'})">
+        <div class="title" style="color: #F5F5F5;">Antigo Testamento</div>
+    </ons-card>
+    <ons-card onclick="fn.pushPage({'id': 'novoTestamento.html', 'title': 'Novo Testamento'})">
+        <div class="title" style="color: #F5F5F5;">Novo Testamento</div>
+    </ons-card>
+    <script>
+        ons.getScriptPage().onInit = function () {
+            this.querySelector('#jogar_ div.center').textContent = 'Jogar';
+        }
     </script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+    <style>
+        .button-margin {
+            margin: 6px 0;
+        }
+
+      .intro {
+        text-align: center;
+        padding: 0 20px;
+        margin-top: 40px;
+      }
+
+      ons-card {
+        cursor: pointer;
+        color: #549A7D;
+      }
+
+      .card__title,
+      .card--material__title {
+        font-size: 20px;
+      }
+    </style>
+  </ons-page>
+</template>
+
+<script>
+    var admobid = {}
+    if (/(android)/i.test(navigator.userAgent)) {  // for android & amazon-fireos
+        admobid = {
+            banner: 'ca-app-pub-7091486462236476/7375172387',
+            interstitial: 'ca-app-pub-7091486462236476/6017665160',
+        }
+    }
+
+    document.addEventListener('deviceready', function () {
+        admob.banner.config({ 
+            id: admobid.banner, 
+            isTesting: false, 
+            autoShow: true, 
+        })
+        admob.banner.prepare()
+        
+        admob.interstitial.config({
+            id: admobid.interstitial,
+            isTesting: false,
+            autoShow: false,
+        })
+        admob.interstitial.prepare()
+
+        document.getElementsByClassName('showAd').disabled = true
+        document.getElementsByClassName('showAd').onclick = function() {
+            admob.interstitial.show()
+        }
+    }, false);
+
+    document.addEventListener('admob.banner.events.LOAD_FAIL', function(event) {
+        //alert(JSON.stringify(event))
+    })
+
+    document.addEventListener('admob.interstitial.events.LOAD_FAIL', function(event) {
+        //alert(JSON.stringify(event))
+    })
+
+    document.addEventListener('admob.interstitial.events.LOAD', function(event) {
+        //alert(JSON.stringify(event))
+        document.getElementsByClassName('showAd').disabled = false
+    })
+
+    document.addEventListener('admob.interstitial.events.CLOSE', function(event) {
+        //alert(JSON.stringify(event))
+        admob.interstitial.prepare()
+    })
+</script>
+<script src="js/index.js"></script>
+
 </body>
 
 </html>

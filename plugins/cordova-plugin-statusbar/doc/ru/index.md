@@ -179,7 +179,7 @@
 
 Также поддерживаются свойства CSS стенографию.
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
+    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

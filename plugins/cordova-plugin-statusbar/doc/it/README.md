@@ -55,7 +55,7 @@ Le linee 5 + Android Guida specificano utilizzando un colore diverso per la barr
 
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#333");
+    StatusBar.backgroundColorByHexString("#549A7D");
 }
 ```
 
@@ -212,7 +212,7 @@ Imposta il colore di sfondo della barra di stato di una stringa esadecimale.
 
 Proprietà di scrittura stenografica CSS sono supportati anche.
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
+    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

@@ -55,7 +55,7 @@
 
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#333");
+    StatusBar.backgroundColorByHexString("#549A7D");
 }
 ```
 
@@ -212,7 +212,7 @@ Ios 7, StatusBar.statusBarOverlaysWebView을 false로 설정 하면 설정할 �
 
 CSS 대표 속성 지원 됩니다.
 
-    StatusBar.backgroundColorByHexString("#333"); // => #333333
+    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 
