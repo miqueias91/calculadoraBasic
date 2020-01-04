@@ -52,7 +52,7 @@ Preferences
 The Android 5+ guidelines specify using a different color for the statusbar than your main app color (unlike the uniform statusbar color of many iOS 7+ apps), so you may want to set the statusbar color at runtime instead via `StatusBar.backgroundColorByHexString` or `StatusBar.backgroundColorByName`. One way to do that would be:
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#549A7D");
+    StatusBar.backgroundColorByHexString("#704031");
 }
 ```
 
@@ -224,7 +224,7 @@ Sets the background color of the statusbar by a hex string.
 
 CSS shorthand properties are also supported.
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
 
 On iOS 7, when you set StatusBar.statusBarOverlaysWebView to false, you can set the background color of the statusbar by a hex string (#RRGGBB).

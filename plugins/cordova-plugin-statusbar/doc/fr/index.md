@@ -199,7 +199,7 @@ Définit la couleur d'arrière-plan de la barre d'État par une chaîne hexadéc
 
 Propriétés de raccourci CSS sont également pris en charge.
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

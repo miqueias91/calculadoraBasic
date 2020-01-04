@@ -6788,7 +6788,7 @@ a.color-black {
 }
 html:not(.watch-active-state) .theme-black .button.button-fill:active,
 .theme-black .button.button-fill.active-state {
-  background: #549A7D;
+  background: #704031;
 }
 .button.button-fill.bg-black,
 .button.button-fill.color-black {
@@ -6799,7 +6799,7 @@ html:not(.watch-active-state) .button.button-fill.bg-black:active,
 html:not(.watch-active-state) .button.button-fill.color-black:active,
 .button.button-fill.bg-black.active-state,
 .button.button-fill.color-black.active-state {
-  background: #549A7D !important;
+  background: #704031 !important;
 }
 .progressbar.color-black,
 .progressbar.theme-black,
@@ -7031,7 +7031,7 @@ html:not(.watch-active-state) .list-block .item-link.list-block .swipeout-action
 .list-block .item-linka.bg-black.active-state,
 .list-block .item-link.list-block .swipeout-actions-left a.bg-black.active-state,
 .list-block .item-link.list-block .swipeout-actions-right a.bg-black.active-state {
-  background: #549A7D;
+  background: #704031;
 }
 .border-black {
   border-color: #000000;
@@ -7065,7 +7065,7 @@ html:not(.watch-active-state) .speed-dial-buttons a.color-black:active,
 .speed-dial-buttons a.theme-black.active-state,
 .floating-button.color-black.active-state,
 .speed-dial-buttons a.color-black.active-state {
-  background: #549A7D;
+  background: #704031;
 }
 .theme-black .floating-button i,
 .theme-black .speed-dial-buttons a i,

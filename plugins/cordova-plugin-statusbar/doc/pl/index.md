@@ -199,7 +199,7 @@ Ustawia kolor tła stanu przez ciąg szesnastkowy.
 
 Obsługiwane są również właściwości CSS.
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

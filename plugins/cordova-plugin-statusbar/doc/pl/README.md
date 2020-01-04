@@ -55,7 +55,7 @@ Android 5 + wytyczne określają przy użyciu różnych kolorów statusbar niż 
 
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#549A7D");
+    StatusBar.backgroundColorByHexString("#704031");
 }
 ```
 
@@ -212,7 +212,7 @@ Ustawia kolor tła stanu przez ciąg szesnastkowy.
 
 Obsługiwane są również właściwości CSS.
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

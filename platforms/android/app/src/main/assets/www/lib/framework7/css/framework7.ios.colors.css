@@ -1632,7 +1632,7 @@ Framework7 Layouts Themes
 .navbar.layout-dark:after,
 .layout-dark .subnavbar:after,
 .subnavbar.layout-dark:after {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .toolbar,
 .toolbar.layout-dark {
@@ -1641,7 +1641,7 @@ Framework7 Layouts Themes
 }
 .layout-dark .toolbar:before,
 .toolbar.layout-dark:before {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .picker-modal .toolbar {
   background-color: #131313;
@@ -1655,11 +1655,11 @@ Framework7 Layouts Themes
 }
 .layout-dark .popover .picker-modal .picker-center-highlight:before,
 .layout-dark .picker-modal.picker-modal-inline .picker-center-highlight:before {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .popover .picker-modal .picker-center-highlight:after,
 .layout-dark .picker-modal.picker-modal-inline .picker-center-highlight:after {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .popover .picker-modal .picker-item.picker-selected,
 .layout-dark .picker-modal.picker-modal-inline .picker-item.picker-selected {
@@ -1685,7 +1685,7 @@ Framework7 Layouts Themes
 }
 .layout-dark .popover .picker-modal .picker-calendar-day.picker-calendar-day-today span,
 .layout-dark .picker-modal.picker-modal-inline .picker-calendar-day.picker-calendar-day-today span {
-  background: #549A7D;
+  background: #704031;
 }
 .layout-dark .popover .picker-modal .picker-calendar-day.picker-calendar-day-has-events span:after,
 .layout-dark .picker-modal.picker-modal-inline .picker-calendar-day.picker-calendar-day-has-events span:after {
@@ -1695,16 +1695,16 @@ Framework7 Layouts Themes
 .layout-dark .picker-modal.picker-modal-inline .picker-calendar-week-days:after,
 .layout-dark .popover .picker-modal .picker-calendar-row:after,
 .layout-dark .picker-modal.picker-modal-inline .picker-calendar-row:after {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .popover .picker-modal .toolbar ~ .picker-modal-inner .picker-calendar-months:before,
 .layout-dark .picker-modal.picker-modal-inline .toolbar ~ .picker-modal-inner .picker-calendar-months:before,
 .layout-dark .popover .picker-modal .picker-calendar-week-days ~ .picker-calendar-months:before,
 .layout-dark .picker-modal.picker-modal-inline .picker-calendar-week-days ~ .picker-calendar-months:before {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .popover .picker-modal .toolbar:after {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .photo-browser .navbar,
 .layout-dark .views .view[data-page="photo-browser-slides"] .navbar,
@@ -1843,10 +1843,10 @@ html:not(.watch-active-state) .layout-dark label.label-radio:active,
   background-color: #393939;
 }
 .layout-dark .searchbar {
-  background: #549A7D;
+  background: #704031;
 }
 .layout-dark .searchbar:after {
-  background-color: #549A7D;
+  background-color: #704031;
 }
 .layout-dark .list-block input[type="text"],
 .list-block.layout-dark input[type="text"],

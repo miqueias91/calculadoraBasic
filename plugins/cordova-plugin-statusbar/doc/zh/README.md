@@ -55,7 +55,7 @@ Android 的 5 + 準則指定使用不同的顏色比您主要的應用程式狀�
 
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#549A7D");
+    StatusBar.backgroundColorByHexString("#704031");
 }
 ```
 
@@ -212,7 +212,7 @@ if (cordova.platformId == 'android') {
 
 此外支援 CSS 速記屬性。
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

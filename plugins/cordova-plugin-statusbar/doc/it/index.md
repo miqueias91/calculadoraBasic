@@ -199,7 +199,7 @@ Imposta il colore di sfondo della barra di stato di una stringa esadecimale.
 
 Proprietà di scrittura stenografica CSS sono supportati anche.
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

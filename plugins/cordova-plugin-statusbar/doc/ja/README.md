@@ -55,7 +55,7 @@ Android のガイドライン 5 + 指定メイン アプリよりもステータ
 
 ```js
 if (cordova.platformId == 'android') {
-    StatusBar.backgroundColorByHexString("#549A7D");
+    StatusBar.backgroundColorByHexString("#704031");
 }
 ```
 
@@ -212,7 +212,7 @@ Ios 7、StatusBar.statusBarOverlaysWebView を false に設定する場合はス
 
 速記の CSS プロパティもサポートされています。
 
-    StatusBar.backgroundColorByHexString("#549A7D"); // => #549A7D333
+    StatusBar.backgroundColorByHexString("#704031"); // => #704031333
     StatusBar.backgroundColorByHexString("#FAB"); // => #FFAABB
     
 

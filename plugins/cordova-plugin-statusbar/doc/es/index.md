@@ -192,7 +192,7 @@ Establece el color de fondo de la barra de estado por una cadena hexadecimal.
 
 Propiedades CSS abreviada también son compatibles.
 
-    StatusBar.backgroundColorByHexString("#549A7D"); = > StatusBar.backgroundColorByHexString("#FAB") #549A7D333; = > #FFAABB
+    StatusBar.backgroundColorByHexString("#704031"); = > StatusBar.backgroundColorByHexString("#FAB") #704031333; = > #FFAABB
     
 
 En iOS 7, cuando se establece StatusBar.statusBarOverlaysWebView en false, se puede establecer el color de fondo de la barra de estado una cadena hexadecimal (#RRGGBB).
