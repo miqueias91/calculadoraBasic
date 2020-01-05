@@ -97,7 +97,7 @@ var app = {
             }
           }
           if (pergunta) {            
-            obj.opcoes = '<ons-list-header style="font-size: 30px;">'+pergunta+'</ons-list-header>';
+            obj.opcoes = '<ons-list-header style="font-size: 25px;">'+pergunta+'</ons-list-header>';
             for (var i in respostas) {
               if (respostas[i]) {
                 obj.opcoes += 
