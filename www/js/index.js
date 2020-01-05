@@ -1,5 +1,8 @@
 var timeout = 5000;
 var num_perg = 0;
+var acertos = 0;
+var erros = 0;
+var lista_score = JSON.parse(localStorage.getItem('lista-score') || '[]');
 // Pega a lista já cadastrada, se não houver vira um array vazio
 window.fn = {};
 window.fn.toggleMenu = function () {
@@ -100,7 +103,7 @@ var app = {
                 obj.opcoes += 
                   '<ons-list-item tappable style="font-size: 20px;">'+
                   '    <label class="left">'+
-                  '      <ons-radio class="quiz_" input-id="quiz'+i+'" value="'+respostas[i]+'"></ons-radio>'+
+                  "      <ons-radio class='quiz_' input-id='quiz"+i+"' value='"+respostas[i]+"'></ons-radio>"+
                   '    </label>'+
                   '    <label for="quiz'+i+'" class="center">'+respostas[i]+'</label>'+
                   '</ons-list-item>';
@@ -123,7 +126,7 @@ var app = {
               '          <ons-button modifier="large" class="button-margin pular">PULAR</ons-button>'+
               '      </ons-col>'+
               '      <ons-col>'+
-              '          <ons-button modifier="large" class="button-margin eliminar">ELIMINAR</ons-button>'+
+              '          <ons-button modifier="large" class="button-margin finalizar">FINALIZAR</ons-button>'+
               '      </ons-col>'+
               '  </ons-row>'+
             '</section>';
@@ -145,13 +148,16 @@ var app = {
 
           $( ".responder" ).click(function() { 
             console.log(currentValue)
+            console.log(resposta)
             if (currentValue != resposta) {
+              erros++
               ons.notification.alert({
                 message: 'Resposta errada!',
                 title: 'Mensagem',
               });
             }
             else{
+              acertos++
               ons.notification.alert({
                 message: 'Resposta certa!',
                 title: 'Mensagem',
@@ -168,13 +174,39 @@ var app = {
                 }
               });
             }
+            currentId = 'quiz_';
+            currentValue = '';
+            $('#acerto').html('Acertos: '+acertos);
+            $('#erro').html('Erros: '+erros);
           });
 
           $( ".pular" ).click(function() { 
+            currentId = 'quiz_';
+            currentValue = '';
             num_perg++;
             if (num_perg < total_perguntas) {              
               app.buscaPergunta(quiz, num_perg);
             }
+          });
+
+          $( ".finalizar" ).click(function() { 
+            if (acertos > 0) {
+              lista_score.push(acertos);
+              localStorage.setItem("lista-score", JSON.stringify(lista_score));              
+            }
+            ons.notification.alert({
+              message: 'Sua pontuação: '+acertos,
+              title: 'Mensagem',
+              callback: function (index) {
+                if (0 == index) {
+                  console.log(1);
+                  location.href = 'index.html';
+                }
+                else{
+                  console.log(2);
+                }
+              }
+            });
           });
         });        
       }

@@ -99,6 +99,44 @@
   </ons-page>
 </template>
 
+<template id="score.html">
+  <ons-page>
+        <ons-toolbar id="score_">
+            <div class="left">
+                <ons-back-button>Score</ons-back-button>
+            </div>
+            <div class="center"></div>
+        </ons-toolbar>
+
+    <script>
+        ons.getScriptPage().onInit = function () {
+            this.querySelector('#score_ div.center').textContent = 'Score';
+        }
+    </script>
+    <style>
+        .button-margin {
+            margin: 6px 0;
+        }
+
+      .intro {
+        text-align: center;
+        padding: 0 20px;
+        margin-top: 40px;
+      }
+
+      ons-card {
+        cursor: pointer;
+        color: #704031;
+      }
+
+      .card__title,
+      .card--material__title {
+        font-size: 20px;
+      }
+    </style>
+  </ons-page>
+</template>
+
 <template id="jogar.html">
   <ons-page>
         <ons-toolbar id="jogar_">
@@ -150,6 +188,16 @@
             </div>
             <div class="center"></div>
         </ons-toolbar>
+     
+
+        <ons-list-header style="font-size: 30px;" id="textoquiz_">
+            <div class="center">
+                <span id="acerto"></span>
+                <span style="float: right;" id="erro"></span>
+            </div>
+        </ons-list-header>
+        <br>
+
         <ons-list id="textoquiz">
         </ons-list>
 
@@ -157,6 +205,8 @@
         ons.getScriptPage().onInit = function () {
             var dados = this.data.title.split('||'); 
             this.querySelector('#quiz_ div.center').textContent = dados[0];
+            $('#acerto').html('Acertos: '+acertos);
+            $('#erro').html('Erros: '+erros);
             app.buscaPergunta(dados[1], num_perg);
         }
     </script>
