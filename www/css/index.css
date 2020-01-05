@@ -76,3 +76,11 @@ ons-fab.fab--material{
     background-color: #704031;
     border-radius: 20px;
 }
+
+.alert-dialog-content--material {
+    font-size: 25px;
+}
+
+.alert-dialog-title--material {
+    font-size: 30px;
+}
