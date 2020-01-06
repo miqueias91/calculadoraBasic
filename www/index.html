@@ -40,6 +40,7 @@
         <script>
           ons.getScriptPage().addEventListener('prechange', function(event) {
             if (event.target.matches('#appTabbar')) {
+                admob.interstitial.show();
               event.currentTarget.querySelector('#tabbar_ .center center').innerHTML = 'Quiz da Bíblia';
             }
           });
@@ -110,6 +111,7 @@
 
     <script>
         ons.getScriptPage().onInit = function () {
+            admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Score';
         }
     </script>
@@ -150,6 +152,7 @@
     </ons-card>
     <script>
         ons.getScriptPage().onInit = function () {
+            admob.interstitial.show();
             this.querySelector('#jogar_ div.center').textContent = 'Jogar';
         }
     </script>
@@ -200,6 +203,7 @@
 
     <script>
         ons.getScriptPage().onInit = function () {
+            admob.interstitial.show();
             var dados = this.data.title.split('||'); 
             this.querySelector('#quiz_ div.center').textContent = dados[0];
             $('#acerto').html('Acertos: '+acertos);
@@ -234,8 +238,8 @@
     var admobid = {}
     if (/(android)/i.test(navigator.userAgent)) {  // for android & amazon-fireos
         admobid = {
-            banner: 'ca-app-pub-7091486462236476/7375172387',
-            interstitial: 'ca-app-pub-7091486462236476/6017665160',
+            banner: 'ca-app-pub-7091486462236476/6369148173',
+            interstitial: 'ca-app-pub-7091486462236476/9625866900',
         }
     }
 
