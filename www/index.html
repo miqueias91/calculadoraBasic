@@ -77,8 +77,8 @@
             </ons-card>
         </ons-col>
     </ons-row>
-    <ons-card onclick="fn.pushPage({'id': 'sair.html', 'title': 'Buttons'})">
-      <div class="title titulo_menu"><i class="fas fa-door-open"></i><br>SAIR</div>
+    <ons-card onclick="fn.pushPage({'id': 'help.html', 'title': 'Ajuda'})">
+      <div class="title titulo_menu"><i class="fas fa-question-circle"></i><br>AJUDA</div>
     </ons-card>
 
     <style>
@@ -112,7 +112,7 @@
         <ons-list-header style="font-size: 30px;" id="">
             <div class="left">
             </div>
-            <div class="center intro">
+            <div class="center intro" id="maxScore" style="font-size: 100px;margin-top: 100px;">
                 Max Score
             </div>
         </ons-list-header>
@@ -120,11 +120,64 @@
     <script>
         ons.getScriptPage().onInit = function () {
             admob.interstitial.show();
-            this.querySelector('#score_ div.center').textContent = 'Score';
-            var score = localStorage.getItem('lista-score');
-            var max_score = Math.max(score);
-            console.log(score)
-            console.log(max_score)
+            this.querySelector('#score_ div.center').textContent = 'Max Score';
+            var arr = localStorage.getItem('lista-score');
+            $("#maxScore").html(maxArray(JSON.parse(arr)));
+
+        }
+    </script>
+    <style>
+        .button-margin {
+            margin: 6px 0;
+        }
+
+      .intro {
+        text-align: center;
+        padding: 0 20px;
+        margin-top: 40px;
+      }
+
+      ons-card {
+        cursor: pointer;
+        color: #704031;
+      }
+
+      .card__title,
+      .card--material__title {
+        font-size: 20px;
+      }
+    </style>
+  </ons-page>
+</template>
+
+<template id="help.html">
+  <ons-page>
+        <ons-toolbar id="score_">
+            <div class="left">
+                <ons-back-button>Score</ons-back-button>
+            </div>
+            <div class="center"></div>
+        </ons-toolbar>
+        <ons-list-header>
+            <div class="left">
+            </div>
+            <div class="center intro" style="font-size: 25px">
+                100 Perguntas Bíblicas | Nível Fácil
+
+                Quiz de 100 perguntas bíblicas com alternativas para você testar o seu conhecimento e se dedicar ainda mais a Palavra de Deus!
+
+                Nesta seleção de perguntas você encontrará questões gerais sobre a Bíblia, temas do Velho e Novo Testamento.
+
+                Bom desafio!
+            </div>
+        </ons-list-header>
+        
+    <script>
+        ons.getScriptPage().onInit = function () {
+            admob.interstitial.show();
+            this.querySelector('#score_ div.center').textContent = 'Ajuda';
+            var arr = localStorage.getItem('lista-score');
+            $("#maxScore").html(maxArray(JSON.parse(arr)));
 
         }
     </script>
@@ -162,7 +215,7 @@
         </ons-toolbar>
      
 
-        <ons-list-header style="font-size: 30px;" id="textoquiz_">
+        <ons-list-header style="font-size: 30px;margin-top: 10px;" id="textoquiz_">
             <div class="center">
                 <span id="acerto"></span>
                 <span style="float: right;" id="erro"></span>

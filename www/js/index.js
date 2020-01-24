@@ -36,7 +36,9 @@ window.fn.showDialog = function (id) {
 window.fn.hideDialog = function (id) {
   document.getElementById(id).hide();
 };
-
+function maxArray(array) {
+  return Math.max.apply(Math, array);
+};
 var app = {
   // Application Constructor
   initialize: function() {
@@ -147,8 +149,6 @@ var app = {
           }
 
           $( ".responder" ).click(function() { 
-            console.log(currentValue)
-            console.log(resposta)
             if (currentValue != resposta) {
               erros++
               ons.notification.alert({
@@ -169,7 +169,6 @@ var app = {
                     }
                   }
                   else{
-                    console.log(2);
                   }
                 }
               });
@@ -199,11 +198,9 @@ var app = {
               title: 'Mensagem',
               callback: function (index) {
                 if (0 == index) {
-                  console.log(1);
                   location.href = 'index.html';
                 }
                 else{
-                  console.log(2);
                 }
               }
             });
