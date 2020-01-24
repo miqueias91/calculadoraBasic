@@ -1,101 +1,902 @@
 [
-    {
-    	"pergunta":"Como é o nome do filho do casamento de Abraão com Sara?", 
-    	"opcoes":[
-    		"a) Ismael",
-    		"b) Jafé", 
-    		"c) Jacó", 
-    		"d) Isaque", 
-    		"e) Esaú"
-    	],
-    	"resposta":"d) Isaque"
-    },
-    {
-    	"pergunta":"Como era o nome da bisavó de Davi?", 
-    	"opcoes":[
-            "a) Ester",
-            "b) Sarai",
-            "c) Rute",
-            "d) Noemi",
-            "e) Boaz"
-    	],
-    	"resposta":"c) Rute"
-    },
-    {
-    	"pergunta":"Quantos Chifres tem um demônio?", 
-    	"opcoes":[
-            "a) Um",
-            "b) Dois",
-            "c) Três",
-            "d) Quatro",
-            "e) Nenhum"
-    	],
-    	"resposta":"e) Nenhum"
-    },
-    {
-    	"pergunta":"Quem escreveu os livros (da bíblia): Gênesis, Êxodo, Levítico, Números e Deuteronômio?", 
-    	"opcoes":[
-            "a) Paulo, Pedro, Mateus, João e Marcos, respectivamente",
-            "b) Davi, Saul, Jônatas, Samuel e Jó, respectivamente",
-            "c) Abraão e Ló",
-            "d) Moisés",
-            "e) Jacó e Esaú"
-    	],
-    	"resposta":"d) Moisés"
-    },
-    {
-    	"pergunta":"Quantos anos Adão viveu?", 
-    	"opcoes":[
-            "a) 33",
-            "b) 120",
-            "c) 57",
-            "d) 77",
-            "e) 930"
-    	],
-    	"resposta":"e) 930"
-    },
-    {
-    	"pergunta":"Como é o nome do homem que teve a maior idade do mundo?", 
-    	"opcoes":[
-            "a) Jarede",
-            "b) Noé",
-            "c) Matusalém",
-            "d) Adão",
-            "e) Sete"
-    	],
-    	"resposta":"c) Matusalém"
-    },
-    {
-    	"pergunta":"Quem reconstruiu Jerusalém depois de ela ter sido destruida pelos Babilônios?", 
-    	"opcoes":[
-            "a) Neemias",
-            "b) Esdras",
-            "c) Davi",
-            "d) Salomão",
-            "e) Artaxerxes"
-    	],
-    	"resposta":"a) Neemias"
-    },
-    {
-    	"pergunta":"Davi disse à igreja: \"Quem esta disposto a dar ofertas a Deus por conta própria?\". Depois disso quanto o templo arrecadou de ofertas para a reconstrução do templo?", 
-    	"opcoes":[
-            "a) 160Kg de ouro, 340Kg de Prata",
-            "b) 100Kg de ouro, 250Kg de Prata",
-            "c) 500Kg de ouro, 1t de prata",
-            "d) 1t de ouro, 2.5t de prata",
-            "e) 160t de ouro, 340t de prata"
-    	],
-    	"resposta":"e) 160t de ouro, 340t de prata"
-    },
-    {
-    	"pergunta":"Jesus percorreu toda a Judéia pregando:", 
-    	"opcoes":[
-            "a) \"Mudem de religião\"",
-            "b) \"Dêem-me suas ofertas e dízimos\"",
-            "c) \"Não faltem aos cultos\"",
-            "d) \"Terrenos no céu à venda!\"",
-            "e) \"Chegou a Hora, e o reino de Deus esta perto! Arrependam-se dos seus pecados e creiam no evangelho.\""
-    	],
-    	"resposta":"e) \"Chegou a Hora, e o reino de Deus esta perto! Arrependam-se dos seus pecados e creiam no evangelho.\""
-    }
-  ]
+  {
+    "pergunta": "1 - Quantos livros tem a Bíblia?",
+    "opcoes": [
+      "a) 66",
+      "b) 63",
+      "c) 65"
+    ],
+    "resposta": "a) 66"
+  },
+  {
+    "pergunta": "2 - Quem foi o primeiro rei de Israel?",
+    "opcoes": [
+      "a) Davi",
+      "b) Isbosete",
+      "c) Saul"
+    ],
+    "resposta": "c) Saul"
+  },
+  {
+    "pergunta": "3 - Qual é o último livro do Velho Testamento?",
+    "opcoes": [
+      "a) Zacarias",
+      "b) Malaquias",
+      "c) Miqueias"
+    ],
+    "resposta": "b) Malaquias"
+  },
+  {
+    "pergunta": "4 - Qual Profeta que foi lançado na cova dos leões?",
+    "opcoes": [
+      "a) Jonas",
+      "b) Daniel",
+      "c) Ezequiel"
+    ],
+    "resposta": "b) Daniel"
+  },
+  {
+    "pergunta": "5 - Quem foi o discípulo que traiu Jesus?",
+    "opcoes": [
+      "a) Pedro",
+      "b) André",
+      "c) Judas"
+    ],
+    "resposta": "c) Judas"
+  },
+  {
+    "pergunta": "6 - Quem construiu a arca?",
+    "opcoes": [
+      "a) Enoque",
+      "b) Noé",
+      "c) Jafé"
+    ],
+    "resposta": "b) Noé"
+  },
+  {
+    "pergunta": "7 - Quem foi o homem que viveu por mais tempo na terra?",
+    "opcoes": [
+      "a) Sete",
+      "b) Matusalém",
+      "c) Lameque"
+    ],
+    "resposta": "b) Matusalém"
+  },
+  {
+    "pergunta": "8 - Qual o maior capitulo da Bíblia?",
+    "opcoes": [
+      "a) Lucas 1",
+      "b) Números 7",
+      "c) Salmos 119"
+    ],
+    "resposta": "c) Salmos 119"
+  },
+  {
+    "pergunta": "9 - Quais são os 4 Evangelhos do Novo Testamento?",
+    "opcoes": [
+      "a) Mateus, Lucas, Marcos e João",
+      "b) Mateus, Lucas, Atos e João",
+      "c) Mateus, Marcos, João e Tiago"
+    ],
+    "resposta": "a) Mateus, Lucas, Marcos e João"
+  },
+  {
+    "pergunta": "10 - O Pentateuco são...",
+    "opcoes": [
+      "a) os 10 primeiros livros da Bíblia.",
+      "b) os 5 primeiros livros do Novo Testamento.",
+      "c) os 5 primeiros livros do Velho Testamento."
+    ],
+    "resposta": "c) os 5 primeiros livros do Velho Testamento"
+  },
+  {
+    "pergunta": "11 - Qual foi o Apóstolo que mais livros escreveu no Novo Testamento?",
+    "opcoes": [
+      "a) Paulo",
+      "b) João",
+      "c) Pedro"
+    ],
+    "resposta": "a) Paulo"
+  },
+  {
+    "pergunta": "12 - Quem foi o homem mais forte do mundo?",
+    "opcoes": [
+      "a) Salomão",
+      "b) Sansão",
+      "c) Davi"
+    ],
+    "resposta": "b) Sansão"
+  },
+  {
+    "pergunta": "13 - Quem batizou Jesus no Rio Jordão?",
+    "opcoes": [
+      "a) João Evangelista",
+      "b) José de Arimatéia",
+      "c) João Batista"
+    ],
+    "resposta": "c) João Batista"
+  },
+  {
+    "pergunta": "14 - Quem foi o sábio que conversou com Jesus?",
+    "opcoes": [
+      "a) Gamaliel",
+      "b) Nicodemos",
+      "c) Salomão"
+    ],
+    "resposta": "b) Nicodemos"
+  },
+  {
+    "pergunta": "15 - Qual o menor livro do Antigo Testamento?",
+    "opcoes": [
+      "a) Obadias",
+      "b) Amós",
+      "c) Joel"
+    ],
+    "resposta": "a) Obadias"
+  },
+  {
+    "pergunta": "16 - Quem era o filho primogênito de Adão e Eva?",
+    "opcoes": [
+      "a) Sete",
+      "b) Caim",
+      "c) Abel"
+    ],
+    "resposta": "b) Caim"
+  },
+  {
+    "pergunta": "17 - Qual alimento Jesus multiplicou?",
+    "opcoes": [
+      "a) Frutas",
+      "b) Peixe e Pão",
+      "c) Leite e Mel"
+    ],
+    "resposta": "b) Peixe e Pão"
+  },
+  {
+    "pergunta": "18 - Qual era o nome do irmão de Moisés?",
+    "opcoes": [
+      "a) Jacó",
+      "b) Abraão",
+      "c) Arão"
+    ],
+    "resposta": "c) Arão"
+  },
+  {
+    "pergunta": "19 - Quem liderou o êxodo do povo hebreu no Egito?",
+    "opcoes": [
+      "a) José",
+      "b) Moisés",
+      "c) Davi"
+    ],
+    "resposta": "b) Moisés"
+  },
+  {
+    "pergunta": "20 - Quem é o Apóstolo do amor?",
+    "opcoes": [
+      "a) Paulo",
+      "b) João",
+      "c) Tiago"
+    ],
+    "resposta": "b) João"
+  },
+  {
+    "pergunta": "21 - Quem foi o imperador da Babilônia?",
+    "opcoes": [
+      "a) Jeocaz",
+      "b) Nabucodonosor",
+      "c) Faraó"
+    ],
+    "resposta": "b) Nabucodonosor"
+  },
+  {
+    "pergunta": "22 - Quem negou Jesus 3 vezes?",
+    "opcoes": [
+      "a) Judas",
+      "b) Pedro",
+      "c) André"
+    ],
+    "resposta": "b) Pedro"
+  },
+  {
+    "pergunta": "23 - Como morreu Judas?",
+    "opcoes": [
+      "a) Assassinado",
+      "b) Acidente",
+      "c) Suicídio"
+    ],
+    "resposta": "c) Suicídio"
+  },
+  {
+    "pergunta": "24 - Quantos discípulos tinha Jesus?",
+    "opcoes": [
+      "a) 3",
+      "b) 10",
+      "c) 12"
+    ],
+    "resposta": "c) 12"
+  },
+  {
+    "pergunta": "25 - Sadraque, Mezaque e Abedenego foram jogados aonde?",
+    "opcoes": [
+      "a) Na cova dos leões",
+      "b) Na fornalha",
+      "c) No Coliseu"
+    ],
+    "resposta": "b) Na fornalha"
+  },
+  {
+    "pergunta": "26 - Qual foi o primeiro nome de Abraão?",
+    "opcoes": [
+      "a) Israel",
+      "b) Abrão",
+      "c) Adão"
+    ],
+    "resposta": "b) Abrão"
+  },
+  {
+    "pergunta": "27 - Quanto tempo durou a chuva do dilúvio?",
+    "opcoes": [
+      "a) 7 dias e 7 noites",
+      "b) 40 dias e 40 noites",
+      "c) 3 dias e 3 noites"
+    ],
+    "resposta": "b) 40 dias e 40 noites"
+  },
+  {
+    "pergunta": "28 - Qual o nome do anjo que apareceu a Maria, mãe de Jesus?",
+    "opcoes": [
+      "a) Rafael",
+      "b) Miguel",
+      "c) Gabriel"
+    ],
+    "resposta": "c) Gabriel"
+  },
+  {
+    "pergunta": "29 - Quais destes nomes não é mencionado na Bíblia?",
+    "opcoes": [
+      "a) Caio",
+      "b) Tiago",
+      "c) Filipe"
+    ],
+    "resposta": "a) Caio"
+  },
+  {
+    "pergunta": "30 - Quantos pães e peixes Jesus multiplicou para alimentar a multidão?",
+    "opcoes": [
+      "a) 5 Pães e 2 Peixes",
+      "b) 7 Pães e 7 Peixes",
+      "c) 8 Pães e 1 Peixe"
+    ],
+    "resposta": "a) 5 Pães e 2 Peixes"
+  },
+  {
+    "pergunta": "31 - Quem ajudou Jesus a carregar a cruz?",
+    "opcoes": [
+      "a) João",
+      "b) Simão Cirineu",
+      "c) Timóteo"
+    ],
+    "resposta": "b) Simão Cirineu"
+  },
+  {
+    "pergunta": "32 - Antes de ser Rei, qual era o trabalho de Davi?",
+    "opcoes": [
+      "a) Caçador",
+      "b) Pastor de ovelhas",
+      "c) Carpinteiro"
+    ],
+    "resposta": "b) Pastor de ovelhas"
+  },
+  {
+    "pergunta": "33 - Quem perseguiu Davi?",
+    "opcoes": [
+      "a) Faraó",
+      "b) Nabucodonosor",
+      "c) Saul"
+    ],
+    "resposta": "c) Saul"
+  },
+  {
+    "pergunta": "34 - Em que cidade nasceu Jesus?",
+    "opcoes": [
+      "a) Jerusalém",
+      "b) Belém",
+      "c) Samaria"
+    ],
+    "resposta": "b) Belém"
+  },
+  {
+    "pergunta": "35 - O que a mulher de Samaria saiu para fazer?",
+    "opcoes": [
+      "a) Tirar água",
+      "b) Caçar",
+      "c) Colher trigo"
+    ],
+    "resposta": "a) Tirar água"
+  },
+  {
+    "pergunta": "36 - Depois que Pedro negou a Jesus pela terceira vez...",
+    "opcoes": [
+      "a) o véu do templo se rasgou",
+      "b) o céu ficou em trevas",
+      "c) o galo cantou"
+    ],
+    "resposta": "c) o galo cantou"
+  },
+  {
+    "pergunta": "37 - Sansão se apaixonou por qual mulher?",
+    "opcoes": [
+      "a) Rute",
+      "b) Dalila",
+      "c) Sara"
+    ],
+    "resposta": "b) Dalila"
+  },
+  {
+    "pergunta": "38 - Eliseu sucedeu a qual profeta?",
+    "opcoes": [
+      "a) Zacarias",
+      "b) João Batista",
+      "c) Elias"
+    ],
+    "resposta": "c) Elias"
+  },
+  {
+    "pergunta": "39 - Quem não foi Apóstolo?",
+    "opcoes": [
+      "a) Pedro",
+      "b) Isaías",
+      "c) João"
+    ],
+    "resposta": "b) Isaías"
+  },
+  {
+    "pergunta": "40 - Quem escreveu Cantares?",
+    "opcoes": [
+      "a) Davi",
+      "b) Moisés",
+      "c) Salomão"
+    ],
+    "resposta": "c) Salomão"
+  },
+  {
+    "pergunta": "41 - Quem foi governador do Egito?",
+    "opcoes": [
+      "a) Moisés",
+      "b) José",
+      "c) Ismael"
+    ],
+    "resposta": "b) José"
+  },
+  {
+    "pergunta": "42 - Quem pediu para andar nas águas com Jesus?",
+    "opcoes": [
+      "a) Pedro",
+      "b) Tiago",
+      "c) João"
+    ],
+    "resposta": "a) Pedro"
+  },
+  {
+    "pergunta": "43 - Lázaro foi ressuscitado depois de quantos dias?",
+    "opcoes": [
+      "a) 10",
+      "b) 1",
+      "c) 4"
+    ],
+    "resposta": "c) 4"
+  },
+  {
+    "pergunta": "44 - Qual foi o primeiro nome do Apóstolo Paulo?",
+    "opcoes": [
+      "a) Saulo",
+      "b) Tiago",
+      "c) Barnabé"
+    ],
+    "resposta": "a) Saulo"
+  },
+  {
+    "pergunta": "45 - Quanto tempo o povo hebreu ficou no deserto?",
+    "opcoes": [
+      "a) 4 dias",
+      "b) 40 dias",
+      "c) 40 anos"
+    ],
+    "resposta": "c) 40 anos"
+  },
+  {
+    "pergunta": "46 - Quem escreveu o livro de Lamentações?",
+    "opcoes": [
+      "a) Zacarias",
+      "b) Elias",
+      "c) Jeremias"
+    ],
+    "resposta": "c) Jeremias"
+  },
+  {
+    "pergunta": "47 - O que quer dizer \"Rabi\"?",
+    "opcoes": [
+      "a) Rei",
+      "b) Pai",
+      "c) Mestre"
+    ],
+    "resposta": "c) Mestre"
+  },
+  {
+    "pergunta": "48 - Qual era o ofício de José, pai de Jesus?",
+    "opcoes": [
+      "a) Pescador",
+      "b) Cobrador de impostos",
+      "c) Carpinteiro"
+    ],
+    "resposta": "c) Carpinteiro"
+  },
+  {
+    "pergunta": "49 - \"Aquele que está em Cristo nova criatura é; as coisas velhas já passaram;...\"",
+    "opcoes": [
+      "a) \"eis que passaram da morte para a vida.\"",
+      "b) \"eis que já ressuscitou dos mortos.\"",
+      "c) \"eis que tudo se fez novo.\""
+    ],
+    "resposta": "c) \"eis que tudo se fez novo.\""
+  },
+  {
+    "pergunta": "50 - Quais são os dois grandes mandamentos destacados por Jesus?",
+    "opcoes": [
+      "a) Não matarás / Amarás o Senhor teu Deus de todo o teu coração.",
+      "b) Amarás o Senhor teu Deus de todo o teu coração / Amarás ao teu próximo como a ti mesmo.",
+      "c) Não cobiçarás (seus servos, animais, ou coisa alguma que lhe pertença) / Não matarás."
+    ],
+    "resposta": "b) Amarás o Senhor teu Deus de todo o teu coração / Amarás ao teu próximo como a ti mesmo."
+  },
+  {
+    "pergunta": "51 - Qual foi o primeiro milagre de Jesus?",
+    "opcoes": [
+      "a) A transformação da água em vinho",
+      "b) A ressureição de Lázaro",
+      "c) A multiplicação dos pães e peixes"
+    ],
+    "resposta": "a) A transformação da água em vinho"
+  },
+  {
+    "pergunta": "52 - Quem escreveu o livro de Apocalipse?",
+    "opcoes": [
+      "a) Moisés",
+      "b) João",
+      "c) Paulo"
+    ],
+    "resposta": "b) João"
+  },
+  {
+    "pergunta": "53 - Quem foi arrebatado por Deus e não viu a morte?",
+    "opcoes": [
+      "a) Enoque",
+      "b) Jó",
+      "c) Matusalém"
+    ],
+    "resposta": "a) Enoque"
+  },
+  {
+    "pergunta": "54 - Qual o nome do lugar onde habitavam Adão e Eva?",
+    "opcoes": [
+      "a) Jardim Suspenso",
+      "b) Torre de Babel",
+      "c) Jardim do Éden"
+    ],
+    "resposta": "c) Jardim do Éden"
+  },
+  {
+    "pergunta": "55 - Qual profeta foi engolido por um grande peixe?",
+    "opcoes": [
+      "a) Malaquias",
+      "b) Jonas",
+      "c) Elias"
+    ],
+    "resposta": "b) Jonas"
+  },
+  {
+    "pergunta": "56 - Quem subiu na árvore para ver Jesus passar?",
+    "opcoes": [
+      "a) Ananias",
+      "b) Tadeu",
+      "c) Zaqueu"
+    ],
+    "resposta": "c) Zaqueu"
+  },
+  {
+    "pergunta": "57 - Qual foi o Apóstolo que ficou temporariamente cego?",
+    "opcoes": [
+      "a) Tiago",
+      "b) Paulo",
+      "c) Pedro"
+    ],
+    "resposta": "b) Paulo"
+  },
+  {
+    "pergunta": "58 - Quem escreveu o Salmo 23?",
+    "opcoes": [
+      "a) Salomão",
+      "b) Saul",
+      "c) Davi"
+    ],
+    "resposta": "c) Davi"
+  },
+  {
+    "pergunta": "59 - Jesus curou 10 leprosos. Quantos voltaram para agradecer?",
+    "opcoes": [
+      "a) 10",
+      "b) 1",
+      "c) 3"
+    ],
+    "resposta": "b) 1"
+  },
+  {
+    "pergunta": "60 - Quem entrou na Terra Prometida?",
+    "opcoes": [
+      "a) Noé",
+      "b) Moisés",
+      "c) Josué"
+    ],
+    "resposta": "c) Josué"
+  },
+  {
+    "pergunta": "61 - Quem foi colocado num cesto e lançado no rio ainda quando era bebê?",
+    "opcoes": [
+      "a) Jesus",
+      "b) Jonas",
+      "c) Moisés"
+    ],
+    "resposta": "c) Moisés"
+  },
+  {
+    "pergunta": "62 - Quem foi companheiro de batalhas de Josué?",
+    "opcoes": [
+      "a) Davi",
+      "b) Calebe",
+      "c) José"
+    ],
+    "resposta": "b) Calebe"
+  },
+  {
+    "pergunta": "63 - Quem derrotou Golias?",
+    "opcoes": [
+      "a) Josué",
+      "b) Sansão",
+      "c) Davi"
+    ],
+    "resposta": "c) Davi"
+  },
+  {
+    "pergunta": "64 - Quem foi abandonado pelo seus irmãos e vendido como escravo?",
+    "opcoes": [
+      "a) Davi",
+      "b) José",
+      "c) Arão"
+    ],
+    "resposta": "b) José"
+  },
+  {
+    "pergunta": "65 - Quem subiu aos céus em uma carruagem de fogo?",
+    "opcoes": [
+      "a) Enoque",
+      "b) Elias",
+      "c) Eliseu"
+    ],
+    "resposta": "b) Elias"
+  },
+  {
+    "pergunta": "66 - Quem cantava na prisão com Paulo antes do terremoto?",
+    "opcoes": [
+      "a) Silas",
+      "b) Pedro",
+      "c) João"
+    ],
+    "resposta": "a) Silas"
+  },
+  {
+    "pergunta": "67 - Quem entrou na cidade dançando com a arca da aliança?",
+    "opcoes": [
+      "a) Saul",
+      "b) Salomão",
+      "c) Davi"
+    ],
+    "resposta": "c) Davi"
+  },
+  {
+    "pergunta": "68 - Qual era o nome da montanha onde Moisés recebeu os 10 Mandamentos?",
+    "opcoes": [
+      "a) Monte Horebe",
+      "b) Monte Sinai",
+      "c) Monte das Oliveiras"
+    ],
+    "resposta": "b) Monte Sinai"
+  },
+  {
+    "pergunta": "69 - Quem lutou com o anjo até ser abençoado?",
+    "opcoes": [
+      "a) Abraão",
+      "b) Caim",
+      "c) Jacó"
+    ],
+    "resposta": "c) Jacó"
+  },
+  {
+    "pergunta": "70 - Quem se tornou uma coluna de sal depois que olhou para trás?",
+    "opcoes": [
+      "a) Maria Madalena",
+      "b) Mulher de Ló",
+      "c) Nabucodonosor"
+    ],
+    "resposta": "b) Mulher de Ló"
+  },
+  {
+    "pergunta": "71 - Qual cidade teve a sua muralha derrubada?",
+    "opcoes": [
+      "a) Corinto",
+      "b) Creta",
+      "c) Jericó"
+    ],
+    "resposta": "c) Jericó"
+  },
+  {
+    "pergunta": "72 - O que Gideão usou contra os midianitas?",
+    "opcoes": [
+      "a) Escudos, espadas e lanças",
+      "b) Trombetas, cântaros e lâmpadas",
+      "c) Carruagens e arqueiros"
+    ],
+    "resposta": "b) Trombetas, cântaros e lâmpadas"
+  },
+  {
+    "pergunta": "73 - O Livro de Ageu está em que parte da Bíblia?",
+    "opcoes": [
+      "a) Novo Testamento",
+      "b) Velho Testamento",
+      "c) Não existe na Bíblia"
+    ],
+    "resposta": "b) Velho Testamento"
+  },
+  {
+    "pergunta": "74 - Quem foi escolhido pelos discípulos para substituir Judas Iscariotes ?",
+    "opcoes": [
+      "a) Matias",
+      "b) Paulo",
+      "c) Barnabé"
+    ],
+    "resposta": "a) Matias"
+  },
+  {
+    "pergunta": "75 - O que estava escrito na placa da cruz onde Jesus foi crucificado?",
+    "opcoes": [
+      "a) \"Jesus Nazareno, O Reis dos Judeus\"",
+      "b) \"Culpado\"",
+      "c) \"Ele nada fez\""
+    ],
+    "resposta": "a) \"Jesus Nazareno, O Reis dos Judeus\""
+  },
+  {
+    "pergunta": "76 - Quem interrogou Jesus?",
+    "opcoes": [
+      "a) Ciro",
+      "b) Nero",
+      "c) Pilatos"
+    ],
+    "resposta": "c) Pilatos"
+  },
+  {
+    "pergunta": "77 - Jesus entrou em Jerusalém montado em que animal?",
+    "opcoes": [
+      "a) Cavalo",
+      "b) Leão",
+      "c) Jumento"
+    ],
+    "resposta": "c) Jumento"
+  },
+  {
+    "pergunta": "78 - Quem cortou a orelha do soldado?",
+    "opcoes": [
+      "a) Judas",
+      "b) Pedro",
+      "c) Tiago"
+    ],
+    "resposta": "b) Pedro"
+  },
+  {
+    "pergunta": "79 - Qual Apóstolo era irmão de Tiago?",
+    "opcoes": [
+      "a) João",
+      "b) Tomé",
+      "c) Pedro"
+    ],
+    "resposta": "a) João"
+  },
+  {
+    "pergunta": "80 - Onde Jesus foi crucificado?",
+    "opcoes": [
+      "a) Gólgota",
+      "b) Monte Sinai",
+      "c) Monte Horebe"
+    ],
+    "resposta": "a) Gólgota"
+  },
+  {
+    "pergunta": "81 - Quem falou com Balaão?",
+    "opcoes": [
+      "a) Jesus",
+      "b) Jumenta",
+      "c) Demônio"
+    ],
+    "resposta": "b) Jumenta"
+  },
+  {
+    "pergunta": "82 - Quantas tribos tinha em Israel?",
+    "opcoes": [
+      "a) 7",
+      "b) 3",
+      "c) 12"
+    ],
+    "resposta": "c) 12"
+  },
+  {
+    "pergunta": "83 - Qual era a menor tribo de Israel?",
+    "opcoes": [
+      "a) Benjamim",
+      "b) Dã",
+      "c) Manassés"
+    ],
+    "resposta": "a) Benjamim"
+  },
+  {
+    "pergunta": "84 - Quantas vezes o comandante Naamã mergulhou no rio Jordão?",
+    "opcoes": [
+      "a) 3 vezes",
+      "b) 7 vezes",
+      "c) Não mergulhou"
+    ],
+    "resposta": "b) 7 vezes"
+  },
+  {
+    "pergunta": "85 - Quem escreveu os livros de Provérbios e Eclesiastes?",
+    "opcoes": [
+      "a) Davi",
+      "b) Moisés",
+      "c) Salomão"
+    ],
+    "resposta": "c) Salomão"
+  },
+  {
+    "pergunta": "86 - \"O ladrão vem apenas para roubar, matar e...\"",
+    "opcoes": [
+      "a) \"confundir\".",
+      "b) \"destruir\".",
+      "c) \"zombar\"."
+    ],
+    "resposta": "b) \"destruir\"."
+  },
+  {
+    "pergunta": "87 - O que Deus disse depois que Jesus foi batizado nas águas?",
+    "opcoes": [
+      "a) \" Jesus é o Rei dos reis\".",
+      "b) \"Não toques no meu ungido\".",
+      "c) \"Este é o meu Filho amado, em quem me comprazo\"."
+    ],
+    "resposta": "c) \"Este é o meu Filho amado, em quem me comprazo\"."
+  },
+  {
+    "pergunta": "88 - Quantos mandamentos tinham as Tábuas da Lei?",
+    "opcoes": [
+      "a) 7",
+      "b) 10",
+      "c) 2"
+    ],
+    "resposta": "b) 10"
+  },
+  {
+    "pergunta": "89 - \"Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna\".",
+    "opcoes": [
+      "a) João 10:10",
+      "b) João 3:16",
+      "c) João 1:1"
+    ],
+    "resposta": "b) João 3:16"
+  },
+  {
+    "pergunta": "90 - Quem foi o bandido que foi escolhido para ser liberto em vez de Jesus?",
+    "opcoes": [
+      "a) Judas",
+      "b) Pilatos",
+      "c) Barrabás"
+    ],
+    "resposta": "c) Barrabás"
+  },
+  {
+    "pergunta": "91 - Qual mar foi aberto por Moisés?",
+    "opcoes": [
+      "a) Mar Morto",
+      "b) Mar Vermelho",
+      "c) Mar da Galileia"
+    ],
+    "resposta": "b) Mar Vermelho"
+  },
+  {
+    "pergunta": "92 - O que significa Emanuel?",
+    "opcoes": [
+      "a) \"Filho de Deus\".",
+      "b) \"Deus conosco\".",
+      "c) \"Deus é Fiel\"."
+    ],
+    "resposta": "b) \"Deus conosco\"."
+  },
+  {
+    "pergunta": "93 - O Espírito Santo desceu em qual dia?",
+    "opcoes": [
+      "a) Dia da Páscoa",
+      "b) Dia da Independência",
+      "c) Dia de Pentecostes"
+    ],
+    "resposta": "c) Dia de Pentecostes"
+  },
+  {
+    "pergunta": "94 - Quem teve um sonho e deixou seus irmãos com ciúmes?",
+    "opcoes": [
+      "a) Abraão",
+      "b) José",
+      "c) Jacó"
+    ],
+    "resposta": "b) José"
+  },
+  {
+    "pergunta": "95 - Quem era irmão de Jacó?",
+    "opcoes": [
+      "a) Arão",
+      "b) Esaú",
+      "c) Sete"
+    ],
+    "resposta": "b) Esaú"
+  },
+  {
+    "pergunta": "96 - Quem desejou comer a comida dos porcos?",
+    "opcoes": [
+      "a) Saul",
+      "b) O endemoniado Gadareno",
+      "c) O filho pródigo"
+    ],
+    "resposta": "c) O filho pródigo"
+  },
+  {
+    "pergunta": "97 - Quem pulou de alegria no ventre da mãe?",
+    "opcoes": [
+      "a) Jesus",
+      "b) João Batista",
+      "c) Isaque"
+    ],
+    "resposta": "b) João Batista"
+  },
+  {
+    "pergunta": "98 - O que o anjo disse a Maria Madalena chegando ao sepulcro vazio?",
+    "opcoes": [
+      "a) \"Ele não está aqui\"",
+      "b) \"Ele sumiu\"",
+      "c) \"Ele desapareceu\""
+    ],
+    "resposta": "a) \"Ele não está aqui\""
+  },
+  {
+    "pergunta": "99 - Qual discípulo só acreditou vendo?",
+    "opcoes": [
+      "a) Pedro",
+      "b) Tomé",
+      "c) André"
+    ],
+    "resposta": "b) Tomé"
+  },
+  {
+    "pergunta": "100 - Para quem Jonas se recusava a pregar?",
+    "opcoes": [
+      "a) Os amorreus",
+      "b) Os ninivitas",
+      "c) Os amalequitas"
+    ],
+    "resposta": "b) Os ninivitas"
+  }
+]

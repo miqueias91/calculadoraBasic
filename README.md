@@ -1,3 +1,7 @@
-# Quiz da Bíblia
+#100 Perguntas Bíblicas | Nível Fácil
 
-Teste seus conhecimentos bíblicos através deste divertido e educativo jogo de perguntas e respostas bíblicas.
+Quiz de 100 perguntas bíblicas com alternativas para você testar o seu conhecimento e se dedicar ainda mais a Palavra de Deus!
+
+Nesta seleção de perguntas você encontrará questões gerais sobre a Bíblia, temas do Velho e Novo Testamento.
+
+Bom desafio!

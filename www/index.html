@@ -58,7 +58,8 @@
 
 <template id="home.html">
   <ons-page>
-    <ons-card onclick="fn.pushPage({'id': 'jogar.html', 'title': 'Jogar'})">
+    <ons-card onclick="fn.pushPage({'id': 'quiz.html', 'title': 'Conhecimentos Gerais Bíblicos||conhecimentosGeraisBiblicos'})">
+
       <div class="title titulo_menu"><i class="fas fa-play"></i><br>JOGAR</div>
     </ons-card>
 
@@ -108,52 +109,23 @@
             </div>
             <div class="center"></div>
         </ons-toolbar>
-
+        <ons-list-header style="font-size: 30px;" id="">
+            <div class="left">
+            </div>
+            <div class="center intro">
+                Max Score
+            </div>
+        </ons-list-header>
+        
     <script>
         ons.getScriptPage().onInit = function () {
             admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Score';
-        }
-    </script>
-    <style>
-        .button-margin {
-            margin: 6px 0;
-        }
+            var score = localStorage.getItem('lista-score');
+            var max_score = Math.max(score);
+            console.log(score)
+            console.log(max_score)
 
-      .intro {
-        text-align: center;
-        padding: 0 20px;
-        margin-top: 40px;
-      }
-
-      ons-card {
-        cursor: pointer;
-        color: #704031;
-      }
-
-      .card__title,
-      .card--material__title {
-        font-size: 20px;
-      }
-    </style>
-  </ons-page>
-</template>
-
-<template id="jogar.html">
-  <ons-page>
-        <ons-toolbar id="jogar_">
-            <div class="left">
-                <ons-back-button>Jogar</ons-back-button>
-            </div>
-            <div class="center"></div>
-        </ons-toolbar>
-    <ons-card onclick="fn.pushPage({'id': 'quiz.html', 'title': 'Conhecimentos Gerais Bíblicos||conhecimentosGeraisBiblicos'})">
-        <div class="title" style="color: #F5F5F5;">Conhecimentos Gerais Bíblicos</div>
-    </ons-card>
-    <script>
-        ons.getScriptPage().onInit = function () {
-            admob.interstitial.show();
-            this.querySelector('#jogar_ div.center').textContent = 'Jogar';
         }
     </script>
     <style>
