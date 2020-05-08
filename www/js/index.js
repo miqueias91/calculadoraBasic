@@ -3,7 +3,6 @@ var num_perg = 0;
 var acertos = 0;
 var erros = 0;
 var lista_score = JSON.parse(localStorage.getItem('lista-score') || '[]');
-// Pega a lista já cadastrada, se não houver vira um array vazio
 window.fn = {};
 window.fn.toggleMenu = function () {
   document.getElementById('appSplitter').right.toggle();
@@ -59,10 +58,9 @@ var app = {
     if (id === '') {
       return false;
     }
-    else{
-      
-    }
+    else{}
   },
+
   buscaPergunta: function(quiz,num_pergunta) {
     $("#textoquiz").html('');
     var quiz = quiz || "conhecimentosGeraisBiblicos";
@@ -73,10 +71,6 @@ var app = {
       type : "GET",
       url : "js/"+quiz+".json",
       dataType : "json",
-      /*error: function (request, status, erro) {
-        alert("Problema ocorrido: " + status + "\nDescição: " + erro);
-        console.log(request)
-      },*/
       success : function(data){
         $(selector).each(function(){
           var ref = num_pergunta;
@@ -89,17 +83,17 @@ var app = {
             opcoes : ""
           };
 
-
          for(i in data){
             total_perguntas++
             if(i == obj.id){
-                pergunta = data[i]['pergunta'];
-                respostas = data[i]['opcoes'];
-                resposta = data[i]['resposta'];
+              pergunta = data[i]['pergunta'];
+              respostas = data[i]['opcoes'];
+              resposta = data[i]['resposta'];
             }
           }
+
           if (pergunta) {            
-            obj.opcoes = '<ons-list-header style="font-size: 25px;">'+pergunta+'</ons-list-header>';
+            obj.opcoes = '<ons-list-header style="font-size: 25px;">'+(num_pergunta+1)+' - '+pergunta+'</ons-list-header>';
             for (var i in respostas) {
               if (respostas[i]) {
                 obj.opcoes += 
@@ -122,13 +116,13 @@ var app = {
 
           obj.opcoes +=
             '<section style="margin: 20px">'+
-              '  <ons-button modifier="large" class="button-margin responder">RESPONDER</ons-button>'+
+              '  <ons-button modifier="large" style="padding: 10px;box-shadow:0 5px 0 #ccc;" class="button-margin responder">RESPONDER</ons-button>'+
               '  <ons-row>'+
               '      <ons-col style="margin-right: 10px;">'+
-              '          <ons-button modifier="large" class="button-margin pular">PULAR</ons-button>'+
+              '          <ons-button modifier="large" style="padding: 10px;box-shadow:0 5px 0 #ccc;" class="button-margin pular">PULAR</ons-button>'+
               '      </ons-col>'+
               '      <ons-col>'+
-              '          <ons-button modifier="large" class="button-margin finalizar">FINALIZAR</ons-button>'+
+              '          <ons-button modifier="large" style="padding: 10px;box-shadow:0 5px 0 #ccc;" class="button-margin finalizar">FINALIZAR</ons-button>'+
               '      </ons-col>'+
               '  </ons-row>'+
             '</section>';
@@ -149,34 +143,60 @@ var app = {
           }
 
           $( ".responder" ).click(function() { 
-            if (currentValue != resposta) {
-              erros++
-              ons.notification.alert({
-                message: 'Resposta errada!',
-                title: 'Mensagem',
-              });
-            }
-            else{
-              acertos++
-              ons.notification.alert({
-                message: 'Resposta certa!',
-                title: 'Mensagem',
-                callback: function (index) {
-                  if (0 == index) {
-                    num_perg++;
-                    if (num_perg < total_perguntas) {              
-                      app.buscaPergunta(quiz, num_perg);
+            if (currentValue != '') {
+              if (currentValue != resposta) {
+                erros++
+                ons.notification.alert({
+                  message: 'Resposta errada!',
+                  title: 'Mensagem',
+                });
+              }
+              else{
+                acertos++
+                ons.notification.alert({
+                  message: 'Resposta certa!',
+                  title: 'Mensagem',
+                  callback: function (index) {
+                    if (0 == index) {
+                      num_perg++;
+                      if (num_perg < total_perguntas) {              
+                        app.buscaPergunta(quiz, num_perg);
+                      }
+                      else{
+                        if (acertos > 0) {
+                          lista_score.push(acertos);
+                          localStorage.setItem("lista-score", JSON.stringify(lista_score));              
+                        }
+                        ons.notification.alert({
+                          message: 'Parabêns! Você chegou ao fim do quiz.<br><br>Sua pontuação: '+acertos,
+                          title: 'Mensagem',
+                          callback: function (index) {
+                            if (0 == index) {
+                              location.href = 'index.html';
+                            }
+                            else{
+                            }
+                          }
+                        });
+                      }
+                    }
+                    else{
                     }
                   }
-                  else{
-                  }
-                }
+                });
+              }
+              currentId = 'quiz_';
+              currentValue = '';
+              $('.quiz_').prop('checked', false);
+              $('#acerto').html('Acertos: '+acertos);
+              $('#erro').html('Erros: '+erros);
+            }
+            else{
+              ons.notification.alert({
+                message: 'Escolha uma opção!',
+                title: 'Mensagem',
               });
             }
-            currentId = 'quiz_';
-            currentValue = '';
-            $('#acerto').html('Acertos: '+acertos);
-            $('#erro').html('Erros: '+erros);
           });
 
           $( ".pular" ).click(function() { 

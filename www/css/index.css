@@ -75,6 +75,7 @@ ons-fab.fab--material{
 .card--material {
     background-color: #704031;
     border-radius: 20px;
+    box-shadow:0 5px 0 #ccc;
 }
 
 .alert-dialog-content--material {
