@@ -62,4 +62,7 @@
         <param name="android-package" value="name.ratson.cordova.admob.AdMob" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Insomnia">
+        <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+    </feature>
 </widget>
