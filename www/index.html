@@ -29,7 +29,7 @@
             <div class="center"><center>Quiz da Bíblia</center></div>
         </ons-toolbar>
         <ons-tabbar swipeable id="appTabbar" position="auto">
-            <ons-tab label="Versão 1.0.5" page="home.html" active></ons-tab>
+            <ons-tab label="Versão 1.0.6" page="home.html" active></ons-tab>
         </ons-tabbar>
 
         <script>
@@ -234,7 +234,7 @@
             this.querySelector('#quiz_ div.center').textContent = dados[0];
             $('#acerto').html('Acertos: '+acertos);
             $('#erro').html('Erros: '+erros);
-            app.buscaPergunta(dados[1], num_perg);
+            app.carregaQuiz();
         }
     </script>
     <style>
