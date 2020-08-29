@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "832726024267",
+    "firebase_url": "https://quiz-da-biblia-d48b9.firebaseio.com",
+    "project_id": "quiz-da-biblia-d48b9",
+    "storage_bucket": "quiz-da-biblia-d48b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832726024267:android:be660a5cb04952e42e8dce",
+        "android_client_info": {
+          "package_name": "com.phonegap.calculadorabasic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832726024267-bnmdkp4lm6m4gocho4sfi7u1la4becgk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp_H3ShomDEayy1u-dgFjz_-kUizpAVCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832726024267-bnmdkp4lm6m4gocho4sfi7u1la4becgk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

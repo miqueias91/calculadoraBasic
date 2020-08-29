@@ -5,83 +5,9 @@
   },
   "config_munge": {
     "files": {
-      "res/xml/config.xml": {
-        "parents": {
-          "/*": [
-            {
-              "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"name.ratson.cordova.admob.AdMob\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"Insomnia\"><param name=\"android-package\" value=\"nl.xservices.plugins.Insomnia\" /></feature>",
-              "count": 1
-            }
-          ]
-        }
-      },
-      "config.xml": {
-        "parents": {
-          "/*": [
-            {
-              "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"kr.co.joycorp.cordova.exitapp.ExitApp\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"cordova.custom.plugins.exitapp.ExitApp\" /></feature>",
-              "count": 1
-            }
-          ]
-        }
-      },
       "AndroidManifest.xml": {
         "parents": {
-          "/manifest": [
-            {
-              "xml": "<uses-permission android:name=\"com.amazon.device.messaging.permission.RECEIVE\" />",
-              "count": 1
-            },
-            {
-              "xml": "<permission android:name=\"com.phonegap.calculadorabasic.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"com.phonegap.calculadorabasic.permission.RECEIVE_ADM_MESSAGE\" />",
-              "count": 1
-            }
-          ],
           "/manifest/application": [
-            {
-              "xml": "<amazon:enable-feature android:name=\"com.amazon.device.messaging\" android:required=\"false\" xmlns:amazon=\"http://schemas.amazon.com/apk/res/android\" />",
-              "count": 1
-            },
-            {
-              "xml": "<service android:exported=\"false\" android:name=\"com.onesignal.ADMMessageHandler\" />",
-              "count": 1
-            },
-            {
-              "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.phonegap.calculadorabasic\" /></intent-filter></receiver>",
-              "count": 1
-            },
             {
               "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" android:theme=\"@android:style/Theme.Translucent\" />",
               "count": 1
@@ -102,17 +28,62 @@
             }
           ]
         }
+      },
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"name.ratson.cordova.admob.AdMob\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Insomnia\"><param name=\"android-package\" value=\"nl.xservices.plugins.Insomnia\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"kr.co.joycorp.cordova.exitapp\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
       }
     }
   },
   "installed_plugins": {
+    "cordova-admob-sdk": {
+      "PLAY_SERVICES_VERSION": "11.0.4",
+      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
+    },
+    "cordova-promise-polyfill": {
+      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
+    },
+    "cordova-plugin-admob-free": {
+      "ADMOB_APP_ID": "ca-app-pub-7091486462236476~5493860832",
+      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
+    },
     "cordova-plugin-console": {
-      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
-    },
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
-    },
-    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.calculadorabasic"
     },
     "cordova-plugin-dialogs": {
@@ -121,39 +92,40 @@
     "kr.co.joycorp.cordova.exitapp": {
       "PACKAGE_NAME": "com.phonegap.calculadorabasic"
     },
+    "cordova-plugin-insomnia": {
+      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.phonegap.calculadorabasic"
     },
-    "onesignal-cordova-plugin": {
+    "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.phonegap.calculadorabasic"
     },
-    "cordova.custom.plugins.exitapp": {
-      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
-    },
-    "cordova-promise-polyfill": {
-      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
-    },
-    "cordova-admob-sdk": {
-      "PLAY_SERVICES_VERSION": "11.0.4",
-      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
-    },
-    "cordova-plugin-admob-free": {
-      "ADMOB_APP_ID": "ca-app-pub-7091486462236476~5493860832",
-      "PLAY_SERVICES_VERSION": "11.0.4",
-      "PACKAGE_NAME": "com.phonegap.calculadorabasic"
-    },
-    "cordova-plugin-insomnia": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.calculadorabasic"
     }
   },
   "dependent_plugins": {},
   "modules": [
     {
-      "id": "cordova-plugin-statusbar.statusbar",
-      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-      "pluginId": "cordova-plugin-statusbar",
+      "id": "cordova-promise-polyfill.Promise",
+      "file": "plugins/cordova-promise-polyfill/www/Promise.js",
+      "pluginId": "cordova-promise-polyfill",
+      "runs": true
+    },
+    {
+      "id": "cordova-promise-polyfill.promise.min",
+      "file": "plugins/cordova-promise-polyfill/www/promise.min.js",
+      "pluginId": "cordova-promise-polyfill"
+    },
+    {
+      "id": "cordova-plugin-admob-free.AdMob",
+      "file": "plugins/cordova-plugin-admob-free/www/admob.js",
+      "pluginId": "cordova-plugin-admob-free",
       "clobbers": [
-        "window.StatusBar"
+        "admob",
+        "AdMob",
+        "plugins.AdMob"
       ]
     },
     {
@@ -181,6 +153,14 @@
       ]
     },
     {
+      "id": "cordova-plugin-insomnia.Insomnia",
+      "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+      "pluginId": "cordova-plugin-insomnia",
+      "clobbers": [
+        "window.plugins.insomnia"
+      ]
+    },
+    {
       "id": "cordova-plugin-splashscreen.SplashScreen",
       "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
       "pluginId": "cordova-plugin-splashscreen",
@@ -189,63 +169,24 @@
       ]
     },
     {
-      "id": "onesignal-cordova-plugin.OneSignal",
-      "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
-      "pluginId": "onesignal-cordova-plugin",
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
       "clobbers": [
-        "OneSignal"
-      ]
-    },
-    {
-      "id": "cordova.custom.plugins.exitapp.exitApp",
-      "file": "plugins/cordova.custom.plugins.exitapp/www/ExitApp.js",
-      "pluginId": "cordova.custom.plugins.exitapp",
-      "merges": [
-        "navigator.app"
-      ]
-    },
-    {
-      "id": "cordova-promise-polyfill.Promise",
-      "file": "plugins/cordova-promise-polyfill/www/Promise.js",
-      "pluginId": "cordova-promise-polyfill",
-      "runs": true
-    },
-    {
-      "id": "cordova-promise-polyfill.promise.min",
-      "file": "plugins/cordova-promise-polyfill/www/promise.min.js",
-      "pluginId": "cordova-promise-polyfill"
-    },
-    {
-      "id": "cordova-plugin-admob-free.AdMob",
-      "file": "plugins/cordova-plugin-admob-free/www/admob.js",
-      "pluginId": "cordova-plugin-admob-free",
-      "clobbers": [
-        "admob",
-        "AdMob",
-        "plugins.AdMob"
-      ]
-    },
-    {
-      "id": "cordova-plugin-insomnia.Insomnia",
-      "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
-      "pluginId": "cordova-plugin-insomnia",
-      "clobbers": [
-        "window.plugins.insomnia"
+        "window.StatusBar"
       ]
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-console": "1.0.7",
-    "cordova-plugin-statusbar": "1.0.1",
-    "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-dialogs": "2.0.1",
-    "kr.co.joycorp.cordova.exitapp": "1.0.2",
-    "cordova-plugin-splashscreen": "5.0.2",
-    "onesignal-cordova-plugin": "2.4.6",
-    "cordova.custom.plugins.exitapp": "1.0.0",
-    "cordova-promise-polyfill": "0.0.2",
     "cordova-admob-sdk": "0.24.1",
+    "cordova-promise-polyfill": "0.0.2",
     "cordova-plugin-admob-free": "0.27.0",
-    "cordova-plugin-insomnia": "4.3.0"
+    "cordova-plugin-console": "1.0.7",
+    "cordova-plugin-dialogs": "2.0.1",
+    "kr.co.joycorp.cordova.exitapp": "1.0.0",
+    "cordova-plugin-insomnia": "4.3.0",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-statusbar": "1.0.1",
+    "cordova-plugin-whitelist": "1.2.2"
   }
 }

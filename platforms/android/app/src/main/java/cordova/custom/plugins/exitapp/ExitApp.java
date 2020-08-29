@@ -1,4 +1,4 @@
-package cordova.custom.plugins.exitapp;
+package kr.co.joycorp.cordova.exitapp;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
