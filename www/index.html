@@ -29,7 +29,7 @@
             <div class="center"><center>Quiz da Bíblia</center></div>
         </ons-toolbar>
         <ons-tabbar swipeable id="appTabbar" position="auto">
-            <ons-tab label="Versão 1.0.7" page="home.html" active></ons-tab>
+            <ons-tab label="Versão 1.0.8" page="home.html" active></ons-tab>
         </ons-tabbar>
 
         <script>
@@ -284,14 +284,14 @@
         
         admob.banner.config({ 
             id: admobid.banner, 
-            isTesting: false, 
+            isTesting: true, 
             autoShow: true, 
         })
         admob.banner.prepare()
         
         admob.interstitial.config({
             id: admobid.interstitial,
-            isTesting: false,
+            isTesting: true,
             autoShow: false,
         })
         admob.interstitial.prepare()
