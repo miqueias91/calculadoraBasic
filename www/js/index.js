@@ -374,7 +374,7 @@ var app = {
 
   carregaQuiz: function() {
     localStorage.removeItem('lista-quiz');
-    var quiz = "conhecimentosGeraisBiblicos";
+    var quiz = "quiz";
     $.ajax({
       type : "GET",
       url : "js/"+quiz+".json",
