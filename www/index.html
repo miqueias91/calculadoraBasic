@@ -26,7 +26,15 @@
 <template id="tabbar.html">
     <ons-page id="tabbar-page" class="">
         <ons-toolbar id="tabbar_">
-            <div class="center"><center>Quiz da Bíblia</center></div>
+              <div class="toolbar__left toolbar--material__left">
+                <span class="toolbar-button toolbar-button--material" onclick="app.showFromObject()">
+                  <i class="zmdi zmdi-menu" style="color: #fff"></i>
+                </span>
+              </div>
+              <div class="toolbar__center toolbar--material__center">
+                Quiz da Bíblia
+              </div>
+            
         </ons-toolbar>
         <ons-tabbar swipeable id="appTabbar" position="auto">
             <ons-tab label="Versão 1.0.8" page="home.html" active></ons-tab>
@@ -35,12 +43,55 @@
         <script>
           ons.getScriptPage().addEventListener('prechange', function(event) {
             if (event.target.matches('#appTabbar')) {
-                admob.interstitial.show();
+                //admob.interstitial.show();
               event.currentTarget.querySelector('#tabbar_ .center center').innerHTML = 'Quiz da Bíblia';
             }
           });
+
+            ons.ready(function () {
+              ons.createElement('action-sheet.html', { append: true })
+                .then(function (sheet) {
+                  app.showFromTemplate = sheet.show.bind(sheet);
+                  app.hideFromTemplate = sheet.hide.bind(sheet);
+                });
+            });
+
+            app.showFromObject = function () {
+              ons.openActionSheet({
+                title: 'Menu',
+                cancelable: true,
+                buttons: [
+                    {
+                        label: 'Entrar',
+                        icon: 'fa-sign-in'
+                    },                  
+                    {
+                        label: 'Ranking',
+                        icon: 'fa-award'
+                    },
+                    {
+                        label: 'Enviar quiz',
+                        icon: 'fa-paper-plane'
+                    },
+                    {
+                        label: 'Fechar',
+                        icon: 'fa-close',
+                        modifier: 'destructive'
+                    }
+                ]
+              }).then(function (index) { console.log('index: ', index) });
+            };
         </script>
     </ons-page>
+</template>
+
+<template id="action-sheet.html">
+  <ons-action-sheet id="sheet" cancelable title="From template">
+    <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Entrar</ons-action-sheet-button>
+    <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Ranking</ons-action-sheet-button>
+    <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Enviar quiz</ons-action-sheet-button>
+    <ons-action-sheet-button icon="md-close" onclick="app.hideFromTemplate()" modifier="destructive">Fechar</ons-action-sheet-button>
+  </ons-action-sheet>
 </template>
 
 <!-- MODAL DE AGUARDE -->
@@ -114,7 +165,7 @@
         
     <script>
         ons.getScriptPage().onInit = function () {
-            admob.interstitial.show();
+            //admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Max Score';
             var arr = localStorage.getItem('lista-score');
             console.log(arr)
@@ -163,7 +214,7 @@
             <div class="left">
             </div>
             <div class="center intro" style="font-size: 25px">
-                <p>Perguntas Bíblicas | Nível Fácil</p>
+                <p>Perguntas Bíblicas</p>
 
                 <p>Quiz de perguntas bíblicas com alternativas para você testar o seu conhecimento e se dedicar ainda mais a Palavra de Deus!</p>
 
@@ -175,7 +226,7 @@
         
     <script>
         ons.getScriptPage().onInit = function () {
-            admob.interstitial.show();
+            //admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Ajuda';
             var arr = localStorage.getItem('lista-score');
             $("#maxScore").html(maxArray(JSON.parse(arr)));
@@ -229,7 +280,7 @@
 
     <script>
         ons.getScriptPage().onInit = function () {
-            admob.interstitial.show();
+            //admob.interstitial.show();
             var dados = this.data.title.split('||'); 
             this.querySelector('#quiz_ div.center').textContent = dados[0];
             $('#acerto').html('Acertos: '+acertos);
