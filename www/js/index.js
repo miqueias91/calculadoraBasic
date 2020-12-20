@@ -8,6 +8,10 @@ var eliminar = 1;
 
 var lista_score = JSON.parse(localStorage.getItem('lista-score') || '[]');
 
+localStorage.removeItem('userId');
+
+localStorage.removeItem('uid');
+
 window.fn = {};
 
 window.fn.toggleMenu = function () {
@@ -59,7 +63,21 @@ var app = {
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {
-    console.log('receivedEvent');
+    this.oneSignal();
+    this.getIds();
+  },
+  oneSignal: function() {
+    window.plugins.OneSignal
+    .startInit("c890bf70-f20d-4d2d-ab10-4a75230489a2")   
+    .handleNotificationOpened(function(jsonData) {
+      var mensagem = JSON.parse(JSON.stringify(jsonData['notification']['payload']['additionalData']['mensagem']));
+      ons.notification.alert(
+        mensagem,
+        {title: 'Mensagem'}
+      );
+    })
+    .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+    .endInit();
   },
   //FUNÇÃO DE BUSCA
   onSearchKeyDown: function(id) {
@@ -426,22 +444,31 @@ var app = {
     return ano+'-'+mes+'-'+dia+' '+hora+':'+min+':'+seg;
   },
   getIds: function() {
+    window.plugins.OneSignal.getIds(function(ids) {
+      window.localStorage.setItem('playerID', ids.userId);
+      window.localStorage.setItem('pushToken', ids.pushToken);
+    });
+
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
-        window.localStorage.setItem('userId',uid);
-        $("#OneSignalUserId").val(uid);
-        app.cadastraUser(uid);
+        window.localStorage.setItem('uid',uid);
       }
-    });   
-  },
-  cadastraUser: function(uid) {
-    console.log(uid)
-    firebase.database().ref('quiz-da-biblia-d48b9-users').child(uid).set({
-      userId: uid,
-      datacadastro: app.dateTime()
     });
+  },
+  logarUser: function() {
+    var playerID = window.localStorage.getItem('playerID');
+    var pushToken = window.localStorage.getItem('pushToken');
+    var uid = window.localStorage.getItem('uid');
+    var nome = $('#nome').val();
+    var senha = $('#senha').val();
+
+    alert(playerID)
+    alert(pushToken)
+    alert(uid)
+    alert(nome)
+    alert(senha)
   }
 };
 

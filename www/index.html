@@ -57,29 +57,34 @@
             });
 
             app.showFromObject = function () {
-              ons.openActionSheet({
-                title: 'Menu',
-                cancelable: true,
-                buttons: [
-                    {
-                        label: 'Entrar',
-                        icon: 'fa-sign-in'
-                    },                  
-                    {
-                        label: 'Ranking',
-                        icon: 'fa-award'
-                    },
-                    {
-                        label: 'Enviar quiz',
-                        icon: 'fa-paper-plane'
-                    },
-                    {
-                        label: 'Fechar',
-                        icon: 'fa-close',
-                        modifier: 'destructive'
+                ons.openActionSheet({
+                    title: 'Menu',
+                    cancelable: true,
+                    buttons: [
+                        {
+                            label: 'Entrar',
+                            icon: 'fa-sign-in'
+                        },                  
+                        {
+                            label: 'Ranking',
+                            icon: 'fa-award'
+                        },
+                        {
+                            label: 'Enviar quiz',
+                            icon: 'fa-paper-plane'
+                        },
+                        {
+                            label: 'Fechar',
+                            icon: 'fa-close',
+                            modifier: 'destructive'
+                        }
+                    ]
+                }).then(function (index) { 
+                    if (parseInt(index) == 0) {
+                        fn.pushPage({'id': 'entrar.html', 'title': 'Entrar'})
                     }
-                ]
-              }).then(function (index) { console.log('index: ', index) });
+                    console.log('index: ', index) 
+                });
             };
         </script>
     </ons-page>
@@ -87,11 +92,82 @@
 
 <template id="action-sheet.html">
   <ons-action-sheet id="sheet" cancelable title="From template">
-    <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Entrar</ons-action-sheet-button>
-    <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Ranking</ons-action-sheet-button>
-    <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Enviar quiz</ons-action-sheet-button>
-    <ons-action-sheet-button icon="md-close" onclick="app.hideFromTemplate()" modifier="destructive">Fechar</ons-action-sheet-button>
+    <ons-action-sheet-button icon="fa-sign-in" onclick="app.hideFromTemplate()">Entrar</ons-action-sheet-button>
+    <ons-action-sheet-button icon="fa-award" onclick="app.hideFromTemplate()">Ranking</ons-action-sheet-button>
+    <ons-action-sheet-button icon="fa-paper-plane" onclick="app.hideFromTemplate()">Enviar quiz</ons-action-sheet-button>
+    <ons-action-sheet-button icon="fa-close" onclick="app.hideFromTemplate()" modifier="destructive">Fechar</ons-action-sheet-button>
   </ons-action-sheet>
+</template>
+
+<template id="entrar.html">
+  <ons-page>
+        <ons-toolbar id="entrar_">
+            <div class="left">
+                <ons-back-button>Entrar</ons-back-button>
+            </div>
+            <div class="center"></div>
+        </ons-toolbar>
+        <ons-list-header style="font-size: 30px;margin-top: 20px;">
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="nome" float placeholder="Nome"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-key" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input type="password" id="senha" float placeholder="Senha"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <p style="text-align: center">
+                <ons-button modifier="light" onclick="app.logarUser()">Logar</ons-button>
+                <ons-button modifier="light" onclick="">Criar conta</ons-button>
+            </p>
+        </ons-list-header>
+        
+    <script>
+        ons.getScriptPage().onInit = function () {
+            //admob.interstitial.show();
+            this.querySelector('#entrar_ div.center').textContent = 'Entrar';
+        }
+    </script>
+    <style>
+        .button-margin {
+            margin: 6px 0;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        ons-card {
+            cursor: pointer;
+            color: #704031;
+        }
+
+        .card__title,
+        .card--material__title {
+            font-size: 20px;
+        }
+
+        .text-input--material:focus {
+            background-image: linear-gradient(#704031, #704031), linear-gradient(to top, transparent 1px, #afafaf 1px);
+        }
+
+        .text-input--material__label--active {
+            color: #704031;
+        }
+    </style>
+  </ons-page>
 </template>
 
 <!-- MODAL DE AGUARDE -->
@@ -310,6 +386,8 @@
     </style>
   </ons-page>
 </template>
+
+
 
 <!-- JS dependencies (order matters!) -->
 <script type="text/javascript" src="cordova.js"></script>
