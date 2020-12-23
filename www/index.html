@@ -107,13 +107,13 @@
             </div>
             <div class="center"></div>
         </ons-toolbar>
-        <ons-list-header style="font-size: 30px;margin-top: 20px;">
+        <ons-list-header style="font-size: 30px;margin-top: 50px;">
             <ons-list-item class="input-items">
                 <div class="left">
                     <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
                 </div>
                 <label class="center">
-                    <ons-input id="nome" float placeholder="Nome"></ons-input>
+                    <ons-input id="usuario" float placeholder="Usuário"></ons-input>
                 </label>
             </ons-list-item>
 
@@ -128,9 +128,10 @@
 
             <p style="text-align: center">
                 <ons-button modifier="light" onclick="app.logarUser()">Logar</ons-button>
-                <ons-button modifier="light" onclick="">Criar conta</ons-button>
+                <ons-button modifier="light" onclick="fn.pushPage({'id': 'criarConta.html', 'title': 'Criar Conta'})">Criar conta</ons-button>
             </p>
         </ons-list-header>
+
         
     <script>
         ons.getScriptPage().onInit = function () {
@@ -165,6 +166,122 @@
 
         .text-input--material__label--active {
             color: #704031;
+        }
+
+        :checked + .switch--material__toggle > .switch--material__handle {
+            background-color: #704031;
+        }
+    </style>
+  </ons-page>
+</template>
+
+<template id="criarConta.html">
+  <ons-page>
+        <ons-toolbar id="criarConta_">
+            <div class="left">
+                <ons-back-button>Criar Conta</ons-back-button>
+            </div>
+            <div class="center"></div>
+        </ons-toolbar>
+        <ons-list-header style="font-size: 30px;margin-top: 50px;">
+            
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="fa-user" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="new-nome" float placeholder="Nome"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="new-usuario" float placeholder="Usuário"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-email" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input id="new-email" float placeholder="E-mail"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-phone" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input type="number" id="new-celular" float placeholder="Celular" max="11"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-key" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input type="password" id="new-senha" float placeholder="Senha"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <ons-list-item class="input-items">
+                <div class="left">
+                    <ons-icon icon="md-key" class="list-item__icon"></ons-icon>
+                </div>
+                <label class="center">
+                    <ons-input type="password" id="new-confirmar-senha" float placeholder="Confirmar Senha"></ons-input>
+                </label>
+            </ons-list-item>
+
+            <p style="text-align: center">
+                <ons-button modifier="light" onclick="app.cadastrarUser()">Cadastrar</ons-button>
+            </p>
+        </ons-list-header>
+
+        
+    <script>
+        ons.getScriptPage().onInit = function () {
+            //admob.interstitial.show();
+            this.querySelector('#criarConta_ div.center').textContent = 'Criar Conta';
+        }
+    </script>
+    <style>
+        .button-margin {
+            margin: 6px 0;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        ons-card {
+            cursor: pointer;
+            color: #704031;
+        }
+
+        .card__title,
+        .card--material__title {
+            font-size: 20px;
+        }
+
+        .text-input--material:focus {
+            background-image: linear-gradient(#704031, #704031), linear-gradient(to top, transparent 1px, #afafaf 1px);
+        }
+
+        .text-input--material__label--active {
+            color: #704031;
+        }
+
+        :checked + .switch--material__toggle > .switch--material__handle {
+            background-color: #704031;
         }
     </style>
   </ons-page>
@@ -392,6 +509,8 @@
 <!-- JS dependencies (order matters!) -->
 <script type="text/javascript" src="cordova.js"></script>
 <script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery.mask.min.js"></script>
+<script src="js/jquery.maskMoney.min.js"></script>
 <script src="lib/onsen/js/onsenui.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
