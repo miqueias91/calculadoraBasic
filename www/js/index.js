@@ -15,6 +15,9 @@ if (!usuario && !senha) {
   localStorage.removeItem('userId');
   localStorage.removeItem('uid');
 }
+else{
+  console.log('VOU BUSCAR OS DADOS DO USUARIO')
+}
 
 window.fn = {};
 
@@ -472,7 +475,8 @@ var app = {
     if (usuario && senha) {
       if (playerID && uid) {
         $.ajax({
-          url: "https://www.innovatesoft.com.br/webservice/app/logarUserQuiz.php",
+          url: "https://www.innovatesoft.com.br/webservice/quizdabiblia/logarUserQuiz.php",
+          //url: "http://localhost/innovatesoft/webservice/quizdabiblia/logarUserQuiz.php",
           dataType: 'json',
           type: 'POST',
           timeout: parseInt(timeout),
@@ -487,10 +491,22 @@ var app = {
           },
           error: function(e) {
             fn.hideDialog('modal-aguarde');
+            ons.notification.alert({
+              message: 'Houve um problema na conexão, tente novamente.',
+              title: 'Atenção'
+            });
           },
           success: function(a) {
             fn.hideDialog('modal-aguarde');
-            if (a['SUCESSO']) {
+            if (a['ERRO']) {
+              fn.hideDialog('modal-aguarde');
+              ons.notification.alert({
+                message: a['ERRO'],
+                title: 'Atenção'
+              });
+            }
+            else{
+              fn.hideDialog('modal-aguarde');
               window.localStorage.setItem('userId', userId);
               window.localStorage.setItem('pushToken', pushToken);
               window.localStorage.setItem('uid', uid);
@@ -499,20 +515,13 @@ var app = {
               //window.localStorage.setItem('nome', nome);
               //window.localStorage.setItem('email', email);
               //window.localStorage.setItem('celular', celular);
-
             }
-            else{
-              ons.notification.alert({
-                message: a['ERRO'],
-                title: 'Atenção'
-              });
-            }
-            console.log(a)
           },
         });
       }
     }
     else{
+      fn.hideDialog('modal-aguarde');
       ons.notification.alert({
         message: 'Informe o usuário e senha.',
         title: 'Atenção'
@@ -520,7 +529,6 @@ var app = {
     }
   },
   cadastrarUser: function() {
-    //fn.showDialog('modal-aguarde');
     
     var playerID = window.localStorage.getItem('playerID');
     var pushToken = window.localStorage.getItem('pushToken');
@@ -570,59 +578,60 @@ var app = {
       });
     }
     else{
-      
-    }
-
-    /*if (usuario && senha) {
-      if (playerID && uid) {
-        $.ajax({
-          //url: "https://www.innovatesoft.com.br/webservice/app/cadastrarUser.php",
-          url: "http://localhost/innovatesoft/webservice/app/cadastrarUser.php",
-          dataType: 'json',
-          type: 'POST',
-          timeout: parseInt(timeout),
-          data: {
-            'userId': playerID,
-            'pushToken': pushToken,
-            'uid': uid,
-            'usuario': usuario,
-            'senha': senha,
-            'ultimoacesso': this.dateTime(),
-            'app': 'antigo',
-          },
-          error: function(e) {
+      fn.showDialog('modal-aguarde');
+      $.ajax({
+        //url: "https://www.innovatesoft.com.br/webservice/quizdabiblia/cadastrarUserQuiz.php",
+        url: "http://localhost/innovatesoft/webservice/quizdabiblia/cadastrarUserQuiz.php",
+        dataType: 'json',
+        type: 'POST',
+        timeout: parseInt(timeout),
+        data: {
+          'userId': playerID,
+          'pushToken': pushToken,
+          'uid': uid,
+          'nome': nome,
+          'email': email,
+          'usuario': usuario,
+          'senha': senha,
+          'celular': celular,
+          'datacadastro': this.dateTime(),
+          'ultimoacesso': this.dateTime(),
+          'app': 'antigo',
+        },
+        error: function(e) {
+          fn.hideDialog('modal-aguarde');
+          ons.notification.alert({
+            message: 'Houve um problema na conexão, tente novamente.',
+            title: 'Atenção'
+          });
+        },
+        success: function(a) {
+          fn.hideDialog('modal-aguarde');
+          if(a['ERRO']){
+            ons.notification.alert({
+              message: a['ERRO'],
+              title: 'Atenção'
+            });
+          }
+          else {
             fn.hideDialog('modal-aguarde');
-          },
-          success: function(a) {
-            fn.hideDialog('modal-aguarde');
-            if (a['SUCESSO']) {
-              window.localStorage.setItem('userId', userId);
-              window.localStorage.setItem('pushToken', pushToken);
-              window.localStorage.setItem('uid', uid);
-              window.localStorage.setItem('usuario', usuario);
-              window.localStorage.setItem('senha', senha);
-              //window.localStorage.setItem('nome', nome);
-              //window.localStorage.setItem('email', email);
-              //window.localStorage.setItem('celular', celular);
-
-            }
-            else{
-              ons.notification.alert({
-                message: a['ERRO'],
-                title: 'Atenção'
-              });
-            }
-            console.log(a)
-          },
-        });
-      }
-    }
-    else{
-      ons.notification.alert({
-        message: 'Informe o usuário e senha.',
-        title: 'Atenção'
+            window.localStorage.setItem('userId', userId);
+            window.localStorage.setItem('pushToken', pushToken);
+            window.localStorage.setItem('uid', uid);
+            window.localStorage.setItem('usuario', usuario);
+            window.localStorage.setItem('senha', senha);
+            window.localStorage.setItem('nome', nome);
+            window.localStorage.setItem('email', email);
+            window.localStorage.setItem('celular', celular);
+            ons.notification.alert({
+              message: 'Dados cadastrados com sucesso.',
+              title: 'Atenção'
+            });
+          }
+        },
       });
-    }*/
+
+    }
   },
 };
 
