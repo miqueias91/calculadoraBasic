@@ -614,6 +614,10 @@ var app = {
             });
           }
           else {
+            ons.notification.alert({
+              message: 'Dados cadastrados com sucesso.',
+              title: 'Atenção'
+            });
             window.localStorage.setItem('userId', userId);
             window.localStorage.setItem('pushToken', pushToken);
             window.localStorage.setItem('uid', uid);
@@ -622,10 +626,6 @@ var app = {
             window.localStorage.setItem('nome', nome);
             window.localStorage.setItem('email', email);
             window.localStorage.setItem('celular', celular);
-            ons.notification.alert({
-              message: 'Dados cadastrados com sucesso.',
-              title: 'Atenção'
-            });
           }
         },
       });
