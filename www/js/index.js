@@ -580,8 +580,8 @@ var app = {
     else{
       fn.showDialog('modal-aguarde');
       $.ajax({
-        //url: "https://www.innovatesoft.com.br/webservice/quizdabiblia/cadastrarUserQuiz.php",
-        url: "http://localhost/innovatesoft/webservice/quizdabiblia/cadastrarUserQuiz.php",
+        url: "https://www.innovatesoft.com.br/webservice/quizdabiblia/cadastrarUserQuiz.php",
+        //url: "http://localhost/innovatesoft/webservice/quizdabiblia/cadastrarUserQuiz.php",
         dataType: 'json',
         type: 'POST',
         timeout: parseInt(timeout),
@@ -614,7 +614,6 @@ var app = {
             });
           }
           else {
-            fn.hideDialog('modal-aguarde');
             window.localStorage.setItem('userId', userId);
             window.localStorage.setItem('pushToken', pushToken);
             window.localStorage.setItem('uid', uid);
