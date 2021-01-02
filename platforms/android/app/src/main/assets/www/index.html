@@ -26,10 +26,14 @@
 <template id="tabbar.html">
     <ons-page id="tabbar-page" class="">
         <ons-toolbar id="tabbar_">
-            <div class="center"><center>Quiz da Bíblia</center></div>
+          <div class="toolbar__center toolbar--material__center">
+            <center>
+                Quiz da Bíblia 
+            </center>
+          </div>
         </ons-toolbar>
         <ons-tabbar swipeable id="appTabbar" position="auto">
-            <ons-tab label="Versão 1.0.7" page="home.html" active></ons-tab>
+            <ons-tab label="Versão 1.0.8" page="home.html" active></ons-tab>
         </ons-tabbar>
 
         <script>
@@ -53,7 +57,7 @@
 
 <template id="home.html">
   <ons-page>
-    <ons-card onclick="fn.pushPage({'id': 'quiz.html', 'title': 'Conhecimentos Gerais Bíblicos||conhecimentosGeraisBiblicos'})">
+    <ons-card onclick="fn.pushPage({'id': 'quiz.html', 'title': 'Conhecimentos Gerais Bíblicos||quiz'})">
 
       <div class="title titulo_menu"><i class="fas fa-play"></i><br>JOGAR</div>
     </ons-card>
@@ -163,7 +167,7 @@
             <div class="left">
             </div>
             <div class="center intro" style="font-size: 25px">
-                <p>Perguntas Bíblicas | Nível Fácil</p>
+                <p>Perguntas Bíblicas</p>
 
                 <p>Quiz de perguntas bíblicas com alternativas para você testar o seu conhecimento e se dedicar ainda mais a Palavra de Deus!</p>
 
@@ -260,9 +264,13 @@
   </ons-page>
 </template>
 
+
+
 <!-- JS dependencies (order matters!) -->
 <script type="text/javascript" src="cordova.js"></script>
 <script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery.mask.min.js"></script>
+<script src="js/jquery.maskMoney.min.js"></script>
 <script src="lib/onsen/js/onsenui.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
@@ -284,14 +292,14 @@
         
         admob.banner.config({ 
             id: admobid.banner, 
-            isTesting: false, 
+            isTesting: true, 
             autoShow: true, 
         })
         admob.banner.prepare()
         
         admob.interstitial.config({
             id: admobid.interstitial,
-            isTesting: false,
+            isTesting: true,
             autoShow: false,
         })
         admob.interstitial.prepare()

@@ -54,12 +54,26 @@ var app = {
   // deviceready Event Handler    
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
-  onDeviceReady: function() {    
+  onDeviceReady: function() {
     this.receivedEvent('deviceready');  
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {
-    console.log('receivedEvent');
+    this.oneSignal();
+    this.getIds();
+  },
+  oneSignal: function() {
+    window.plugins.OneSignal
+    .startInit("c890bf70-f20d-4d2d-ab10-4a75230489a2")   
+    .handleNotificationOpened(function(jsonData) {
+      var mensagem = JSON.parse(JSON.stringify(jsonData['notification']['payload']['additionalData']['mensagem']));
+      ons.notification.alert(
+        mensagem,
+        {title: 'Mensagem'}
+      );
+    })
+    .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+    .endInit();
   },
   //FUNÇÃO DE BUSCA
   onSearchKeyDown: function(id) {
@@ -68,7 +82,6 @@ var app = {
     }
     else{}
   },
-
   buscaPergunta: function(num_pergunta) {
     $("#textoquiz").html('');
     var selector = this;
@@ -371,10 +384,9 @@ var app = {
       $("#textoquiz").html(opcoes);
     }
   },
-
   carregaQuiz: function() {
     localStorage.removeItem('lista-quiz');
-    var quiz = "conhecimentosGeraisBiblicos";
+    var quiz = "quiz";
     $.ajax({
       type : "GET",
       url : "js/"+quiz+".json",
@@ -388,7 +400,6 @@ var app = {
       }
     });
   },
-
   shuffleArray: function(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -426,27 +437,19 @@ var app = {
     return ano+'-'+mes+'-'+dia+' '+hora+':'+min+':'+seg;
   },
   getIds: function() {
+    window.plugins.OneSignal.getIds(function(ids) {
+      window.localStorage.setItem('playerID', ids.userId);
+      window.localStorage.setItem('pushToken', ids.pushToken);
+    });
+
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
-        window.localStorage.setItem('userId',uid);
-        $("#OneSignalUserId").val(uid);
-        app.cadastraUser(uid);
+        window.localStorage.setItem('uid',uid);
       }
-    });   
-  },
-  cadastraUser: function(uid) {
-    console.log(uid)
-    firebase.database().ref('quiz-da-biblia-d48b9-users').child(uid).set({
-      userId: uid,
-      datacadastro: app.dateTime()
     });
   }
 };
 
 app.initialize();
-
-if (!window.localStorage.getItem('userId')) {
-  app.getIds();
-}

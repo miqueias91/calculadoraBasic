@@ -1260,5 +1260,338 @@
          "c) Os amalequitas"
       ],
       "resposta":"b) Os ninivitas"
-   }
+   },
+  {
+      "pergunta":"Qual o maior livro da biblia?",
+      "opcoes":[
+         "a) Salmos",
+         "b) Provérbios",
+         "c) Ester"
+      ],
+      "resposta":"a) Salmos"
+  },
+  {
+      "pergunta":"Quem foi bisavó de Davi?",
+      "opcoes":[
+         "a) Noemi",
+         "b) Rute",
+         "c) Ester"
+      ],
+      "resposta":"b) Rute"
+  },
+  {
+      "pergunta":"Qual o significado de Apocalipse?",
+      "opcoes":[
+         "a) Condenação",
+         "b) Transformação",
+         "c) Revelação"
+      ],
+      "resposta":"c) Revelação"
+  },
+  {
+      "pergunta":"Onde foi escrito o livro de apocalipse?",
+      "opcoes":[
+         "a) Roma",
+         "b) Ilha de Patmos",
+         "c) Corintho"
+      ],
+      "resposta":"b) Ilha de Patmos"
+  },
+  {
+      "pergunta":"Quem era o filho de Davi?",
+      "opcoes":[
+         "a) Salomão",
+         "b) Josué",
+         "c) Saulo"
+      ],
+      "resposta":"a) Salomão"
+  },
+  {
+      "pergunta":"Em que livro esta escrito a história de Sansão?",
+      "opcoes":[
+         "a) Salmos",
+         "b) João",
+         "c) Juízes"
+      ],
+      "resposta":"c) Juízes"
+  },
+  {
+      "pergunta":"Qual é o nome do anjo que apareceu para Maria?",
+      "opcoes":[
+         "a) Miguel",
+         "b) Gabriel",
+         "c) Lucifer"
+      ],
+      "resposta":"b) Gabriel"
+  },
+  {
+      "pergunta":"Qual o nome do gigante que Davi derrotou?",
+      "opcoes":[
+         "a) Golias",
+         "b) Ogue",
+         "c) Enaque"
+      ],
+      "resposta":"a) Golias"
+  },
+  {
+      "pergunta":"Segundo a Biblia sagrada, quantos caminhos levam a Deus?",
+      "opcoes":[
+         "a) Um caminho",
+         "b) Dois caminhos",
+         "c) Todos os caminhos levam a Deus"
+      ],
+      "resposta":"a) Um caminho"
+  },
+  {
+      "pergunta":"Qual alternativa a seguir não foi uma manifestação do Espírito Santo?",
+      "opcoes":[
+         "a) Água",
+         "b) Uma árvore",
+         "c) Pomba"
+      ],
+      "resposta":"b) Uma árvore"
+  },
+  {
+      "pergunta":"Qual o nome do homem que sempre estava com Elias e pediu porção dobrada de seu espírito?",
+      "opcoes":[
+         "a) Eli",
+         "b) Natã",
+         "c) Eliseu"
+      ],
+      "resposta":"c) Eliseu"
+  },
+  {
+      "pergunta":"Quantos homens foram lançados na fornalha pelo Rei segundo o livro do profeta Daniel?",
+      "opcoes":[
+         "a) 2 homens",
+         "b) 3 homens",
+         "c) 4 homens"
+      ],
+      "resposta":"a) 3 homens"
+  },
+  {
+      "pergunta":"O que Noemi era de Ruth?",
+      "opcoes":[
+         "a) Cunhada",
+         "b) Sogra",
+         "c) Tia"
+      ],
+      "resposta":"b) Sogra"
+  },
+  {
+      "pergunta":"Qual o nome do rei anterior a Davi?",
+      "opcoes":[
+         "a) Acaz",
+         "b) Salomão",
+         "c) Saul"
+      ],
+      "resposta":"c) Saul"
+  },
+  {
+      "pergunta":"Qual o nome do primeiro seguidor de Jesus a morrer por causa da fé?",
+      "opcoes":[
+         "a) Estevão",
+         "b) Pedro",
+         "c) João"
+      ],
+      "resposta":"a) Estevão"
+  },
+  {
+      "pergunta":"Qual salmo o diabo usa para tentar Jesus no deserto?",
+      "opcoes":[
+         "a) 23",
+         "b) 91",
+         "c) 133"
+      ],
+      "resposta":"b) 91"
+  },
+  {
+      "pergunta":"Segundo a Bíblia,qual foi o animal que o diabo usou para enganar Adão e Eva?",
+      "opcoes":[
+         "a) Sapo",
+         "b) Porco",
+         "c) Serpente"
+      ],
+      "resposta":"c) Serpente"
+  },
+  {
+      "pergunta":"Qual o nome dos flihos de Adão e Eva?",
+      "opcoes":[
+         "a) Caim e Abel",
+         "b) Isaac e Ismael",
+         "c) Esaú e Jacó"
+      ],
+      "resposta":"a) Caim e Abel"
+  },
+  {
+      "pergunta":"A Bíblia relata que Jesus afirmou que todos os mandamentos estavam resumidos em um sentimento qual é?",
+      "opcoes":[
+         "a) Vida",
+         "b) Amor",
+         "c) Humildade"
+      ],
+      "resposta":"b) Amor"
+  },
+  {
+      "pergunta":"Qual é o nome da esposa de Abrãao?",
+      "opcoes":[
+         "a) Rebeca",
+         "b) Raquel",
+         "c) Sara"
+      ],
+      "resposta":"c) Sara"
+  },
+  {
+      "pergunta":"Qual a parábola que fala de sementes plantadas em diversos lugares?",
+      "opcoes":[
+         "a) Parábola do semeador",
+         "b) Parábola dos talentos",
+         "c) Parábola das virgens"
+      ],
+      "resposta":"a) Parábola do semeador"
+  },
+  {
+      "pergunta":"Qual o primeiro mandamento da Bíblia?",
+      "opcoes":[
+         "a) Honrar Pai e Mãe",
+         "b) Amar a Deus sobre todas as coisas",
+         "c) Não adorar nada senão o Senhor"
+      ],
+      "resposta":"b) Amar a Deus sobre todas as coisas"
+  },
+  {
+      "pergunta":"O que é o Apocalipse?",
+      "opcoes":[
+         "a) Um nome bíblico",
+         "b) Nome da ilha onde Paulo ficou preso",
+         "c) Último livro da bíblia"
+      ],
+      "resposta":"c) Último livro da bíblia"
+  },
+  {
+      "pergunta":"O que é Porfias?",
+      "opcoes":[
+         "a) Uma obra da carne",
+         "b) Um fruto do Espírito",
+         "c) Um nome bíblico"
+      ],
+      "resposta":"a) Uma obra da carne"
+  },
+  {
+      "pergunta":"Quem escreveu Gênesis, Êxodo, Levítico, Números e Deuteronômio?",
+      "opcoes":[
+         "a) Arão",
+         "b) Moisés",
+         "c) Josué"
+      ],
+      "resposta":"b) Moisés"
+  },
+  {
+      "pergunta":"Qual o parentesco entre Moisés e Arão?",
+      "opcoes":[
+         "a) Tio e sobrinho",
+         "b) Primos",
+         "c) Irmãos"
+      ],
+      "resposta":"c) Irmãos"
+  },
+  {
+      "pergunta":"Qual a primeira carta de Paulo?",
+      "opcoes":[
+         "a) Romanos",
+         "b) 1°Coríntios",
+         "c) Colossenses"
+      ],
+      "resposta":"a) Romanos"
+  },
+  {
+      "pergunta":"Qual o texto mais conhecido da Bíblia?",
+      "opcoes":[
+         "a) Gênesis 1:1",
+         "b) João 3:16",
+         "c) Salmos 83:18"
+      ],
+      "resposta":"b) João 3:16"
+  },
+  {
+      "pergunta":"Quantas ressurreições são descritas na Bíblia (sem contar com Jesus)?",
+      "opcoes":[
+         "a) 7",
+         "b) 8",
+         "c) 9"
+      ],
+      "resposta":"c) 9"
+  },
+  {
+      "pergunta":"Qual o nome do filho mais velho de Jacó?",
+      "opcoes":[
+         "a) Rubem",
+         "b) Dã",
+         "c) José"
+      ],
+      "resposta":"a) Rubem"
+  },
+  {
+      "pergunta":"Quem morreu comido de bicho por não Glórificar a Deus?",
+      "opcoes":[
+         "a) Nabucodonosor",
+         "b) Herodes",
+         "c) Senaqueribe"
+      ],
+      "resposta":"b) Herodes"
+  },
+  {
+      "pergunta":"Quem foi o pai do profeta Isaías?",
+      "opcoes":[
+         "a) Jorão",
+         "b) Obede",
+         "c) Amós"
+      ],
+      "resposta":"c) Amós"
+  },
+  {
+      "pergunta":"Gideão teve quantos filhos?",
+      "opcoes":[
+         "a) 70",
+         "b) 7",
+         "c) 17"
+      ],
+      "resposta":"a) 70"
+  },
+  {
+      "pergunta":"Quais personagens do antigo testamento apareceram conversaram com Jesus?",
+      "opcoes":[
+         "a) Daniel e Ezequiel",
+         "b) Moisés e Elias",
+         "c) Elias e Enoque"
+      ],
+      "resposta":"b) Moisés e Elias"
+  },
+  {
+      "pergunta":"Que personagem bíblico amaldiçoou o dia em que nasceu?",
+      "opcoes":[
+         "a) Moisés",
+         "b) Jonas",
+         "c) Jó"
+      ],
+      "resposta":"c) Jó"
+  },
+  {
+      "pergunta":"Davi reinou sobre Israel durante quantos anos?",
+      "opcoes":[
+         "a) 40",
+         "b) 7",
+         "c) 33"
+      ],
+      "resposta":"a) 40"
+  },
+  {
+      "pergunta":"Quem era o pai de Moisés?",
+      "opcoes":[
+         "a) Lameque",
+         "b) Anrão",
+         "c) Uziel"
+      ],
+      "resposta":"b) Anrão"
+  }
 ]

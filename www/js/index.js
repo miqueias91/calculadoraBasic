@@ -8,17 +8,6 @@ var eliminar = 1;
 
 var lista_score = JSON.parse(localStorage.getItem('lista-score') || '[]');
 
-var usuario = window.localStorage.getItem('usuario');
-var senha = window.localStorage.getItem('senha');
-
-if (!usuario && !senha) {
-  localStorage.removeItem('userId');
-  localStorage.removeItem('uid');
-}
-else{
-  console.log('VOU BUSCAR OS DADOS DO USUARIO')
-}
-
 window.fn = {};
 
 window.fn.toggleMenu = function () {
@@ -65,7 +54,7 @@ var app = {
   // deviceready Event Handler    
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
-  onDeviceReady: function() {    
+  onDeviceReady: function() {
     this.receivedEvent('deviceready');  
   },
   // Update DOM on a Received Event
@@ -93,7 +82,6 @@ var app = {
     }
     else{}
   },
-
   buscaPergunta: function(num_pergunta) {
     $("#textoquiz").html('');
     var selector = this;
@@ -396,7 +384,6 @@ var app = {
       $("#textoquiz").html(opcoes);
     }
   },
-
   carregaQuiz: function() {
     localStorage.removeItem('lista-quiz');
     var quiz = "quiz";
@@ -413,7 +400,6 @@ var app = {
       }
     });
   },
-
   shuffleArray: function(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -463,179 +449,7 @@ var app = {
         window.localStorage.setItem('uid',uid);
       }
     });
-  },
-  logarUser: function() {
-    fn.showDialog('modal-aguarde');
-    var playerID = window.localStorage.getItem('playerID');
-    var pushToken = window.localStorage.getItem('pushToken');
-    var uid = window.localStorage.getItem('uid');
-    var usuario = $('#usuario').val();
-    var senha = $('#senha').val();
-
-    if (usuario && senha) {
-      if (playerID && uid) {
-        $.ajax({
-          url: "https://www.innovatesoft.com.br/webservice/quizdabiblia/logarUserQuiz.php",
-          //url: "http://localhost/innovatesoft/webservice/quizdabiblia/logarUserQuiz.php",
-          dataType: 'json',
-          type: 'POST',
-          timeout: parseInt(timeout),
-          data: {
-            'userId': playerID,
-            'pushToken': pushToken,
-            'uid': uid,
-            'usuario': usuario,
-            'senha': senha,
-            'ultimoacesso': this.dateTime(),
-            'app': 'antigo',
-          },
-          error: function(e) {
-            fn.hideDialog('modal-aguarde');
-            ons.notification.alert({
-              message: 'Houve um problema na conexão, tente novamente.',
-              title: 'Atenção'
-            });
-          },
-          success: function(a) {
-            fn.hideDialog('modal-aguarde');
-            if (a['ERRO']) {
-              fn.hideDialog('modal-aguarde');
-              ons.notification.alert({
-                message: a['ERRO'],
-                title: 'Atenção'
-              });
-            }
-            else{
-              fn.hideDialog('modal-aguarde');
-              window.localStorage.setItem('userId', userId);
-              window.localStorage.setItem('pushToken', pushToken);
-              window.localStorage.setItem('uid', uid);
-              window.localStorage.setItem('usuario', usuario);
-              window.localStorage.setItem('senha', senha);
-              //window.localStorage.setItem('nome', nome);
-              //window.localStorage.setItem('email', email);
-              //window.localStorage.setItem('celular', celular);
-            }
-          },
-        });
-      }
-    }
-    else{
-      fn.hideDialog('modal-aguarde');
-      ons.notification.alert({
-        message: 'Informe o usuário e senha.',
-        title: 'Atenção'
-      });
-    }
-  },
-  cadastrarUser: function() {
-    
-    var playerID = window.localStorage.getItem('playerID');
-    var pushToken = window.localStorage.getItem('pushToken');
-    var uid = window.localStorage.getItem('uid');
-    
-    var nome = $('#new-nome').val();
-    var usuario = $('#new-usuario').val();
-    var email = $('#new-email').val();
-    var celular = $('#new-celular').val();
-    var senha = $('#new-senha').val();
-    var confirmar_senha = $('#new-confirmar-senha').val();
-
-    if(nome == ''){
-      ons.notification.alert({
-        message: 'Informe o seu nome.',
-        title: 'Atenção'
-      });
-    }
-    else if(usuario == ''){
-      ons.notification.alert({
-        message: 'Informe um usuário.',
-        title: 'Atenção'
-      });
-    }
-    else if(email == ''){
-      ons.notification.alert({
-        message: 'Informe um e-mail.',
-        title: 'Atenção'
-      });
-    }
-    else if(celular == ''){
-      ons.notification.alert({
-        message: 'Informe um celular.',
-        title: 'Atenção'
-      });
-    }
-    else if(senha == ''){
-      ons.notification.alert({
-        message: 'Informe uma senha.',
-        title: 'Atenção'
-      });
-    }
-    else if(senha != confirmar_senha){
-      ons.notification.alert({
-        message: 'As senhas não conferem.',
-        title: 'Atenção'
-      });
-    }
-    else{
-      fn.showDialog('modal-aguarde');
-      $.ajax({
-        url: "https://www.innovatesoft.com.br/webservice/quizdabiblia/cadastrarUserQuiz.php",
-        //url: "http://localhost/innovatesoft/webservice/quizdabiblia/cadastrarUserQuiz.php",
-        dataType: 'json',
-        type: 'POST',
-        timeout: parseInt(timeout),
-        data: {
-          'userId': playerID,
-          'pushToken': pushToken,
-          'uid': uid,
-          'nome': nome,
-          'email': email,
-          'usuario': usuario,
-          'senha': senha,
-          'celular': celular,
-          'datacadastro': this.dateTime(),
-          'ultimoacesso': this.dateTime(),
-          'app': 'antigo',
-        },
-        error: function(e) {
-          fn.hideDialog('modal-aguarde');
-          ons.notification.alert({
-            message: 'Houve um problema na conexão, tente novamente.',
-            title: 'Atenção'
-          });
-        },
-        success: function(a) {
-          fn.hideDialog('modal-aguarde');
-          if(a['ERRO']){
-            ons.notification.alert({
-              message: a['ERRO'],
-              title: 'Atenção'
-            });
-          }
-          else {
-            ons.notification.alert({
-              message: 'Dados cadastrados com sucesso.',
-              title: 'Atenção'
-            });
-            window.localStorage.setItem('userId', userId);
-            window.localStorage.setItem('pushToken', pushToken);
-            window.localStorage.setItem('uid', uid);
-            window.localStorage.setItem('usuario', usuario);
-            window.localStorage.setItem('senha', senha);
-            window.localStorage.setItem('nome', nome);
-            window.localStorage.setItem('email', email);
-            window.localStorage.setItem('celular', celular);
-          }
-        },
-      });
-
-    }
-  },
+  }
 };
 
 app.initialize();
-
-if (!window.localStorage.getItem('userId')) {
-  app.getIds();
-}

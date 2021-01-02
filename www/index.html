@@ -26,15 +26,11 @@
 <template id="tabbar.html">
     <ons-page id="tabbar-page" class="">
         <ons-toolbar id="tabbar_">
-              <div class="toolbar__left toolbar--material__left">
-                <span class="toolbar-button toolbar-button--material" onclick="app.showFromObject()">
-                  <i class="zmdi zmdi-menu" style="color: #fff"></i>
-                </span>
-              </div>
-              <div class="toolbar__center toolbar--material__center">
-                Quiz da Bíblia
-              </div>
-            
+          <div class="toolbar__center toolbar--material__center">
+            <center>
+                Quiz da Bíblia 
+            </center>
+          </div>
         </ons-toolbar>
         <ons-tabbar swipeable id="appTabbar" position="auto">
             <ons-tab label="Versão 1.0.8" page="home.html" active></ons-tab>
@@ -43,248 +39,12 @@
         <script>
           ons.getScriptPage().addEventListener('prechange', function(event) {
             if (event.target.matches('#appTabbar')) {
-                //admob.interstitial.show();
+                admob.interstitial.show();
               event.currentTarget.querySelector('#tabbar_ .center center').innerHTML = 'Quiz da Bíblia';
             }
           });
-
-            ons.ready(function () {
-              ons.createElement('action-sheet.html', { append: true })
-                .then(function (sheet) {
-                  app.showFromTemplate = sheet.show.bind(sheet);
-                  app.hideFromTemplate = sheet.hide.bind(sheet);
-                });
-            });
-
-            app.showFromObject = function () {
-                ons.openActionSheet({
-                    title: 'Menu',
-                    cancelable: true,
-                    buttons: [
-                        {
-                            label: 'Entrar',
-                            icon: 'fa-sign-in'
-                        },                  
-                        {
-                            label: 'Ranking',
-                            icon: 'fa-award'
-                        },
-                        {
-                            label: 'Enviar quiz',
-                            icon: 'fa-paper-plane'
-                        },
-                        {
-                            label: 'Fechar',
-                            icon: 'fa-close',
-                            modifier: 'destructive'
-                        }
-                    ]
-                }).then(function (index) { 
-                    if (parseInt(index) == 0) {
-                        fn.pushPage({'id': 'entrar.html', 'title': 'Entrar'})
-                    }
-                    console.log('index: ', index) 
-                });
-            };
         </script>
     </ons-page>
-</template>
-
-<template id="action-sheet.html">
-  <ons-action-sheet id="sheet" cancelable title="From template">
-    <ons-action-sheet-button icon="fa-sign-in" onclick="app.hideFromTemplate()">Entrar</ons-action-sheet-button>
-    <ons-action-sheet-button icon="fa-award" onclick="app.hideFromTemplate()">Ranking</ons-action-sheet-button>
-    <ons-action-sheet-button icon="fa-paper-plane" onclick="app.hideFromTemplate()">Enviar quiz</ons-action-sheet-button>
-    <ons-action-sheet-button icon="fa-close" onclick="app.hideFromTemplate()" modifier="destructive">Fechar</ons-action-sheet-button>
-  </ons-action-sheet>
-</template>
-
-<template id="entrar.html">
-  <ons-page>
-        <ons-toolbar id="entrar_">
-            <div class="left">
-                <ons-back-button>Entrar</ons-back-button>
-            </div>
-            <div class="center"></div>
-        </ons-toolbar>
-        <ons-list-header style="font-size: 30px;margin-top: 50px;">
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input id="usuario" float placeholder="Usuário"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-key" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input type="password" id="senha" float placeholder="Senha"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <p style="text-align: center">
-                <ons-button modifier="light" onclick="app.logarUser()">Logar</ons-button>
-                <ons-button modifier="light" onclick="fn.pushPage({'id': 'criarConta.html', 'title': 'Criar Conta'})">Criar conta</ons-button>
-            </p>
-        </ons-list-header>
-
-        
-    <script>
-        ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
-            this.querySelector('#entrar_ div.center').textContent = 'Entrar';
-        }
-    </script>
-    <style>
-        .button-margin {
-            margin: 6px 0;
-        }
-
-        .intro {
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 40px;
-        }
-
-        ons-card {
-            cursor: pointer;
-            color: #704031;
-        }
-
-        .card__title,
-        .card--material__title {
-            font-size: 20px;
-        }
-
-        .text-input--material:focus {
-            background-image: linear-gradient(#704031, #704031), linear-gradient(to top, transparent 1px, #afafaf 1px);
-        }
-
-        .text-input--material__label--active {
-            color: #704031;
-        }
-
-        :checked + .switch--material__toggle > .switch--material__handle {
-            background-color: #704031;
-        }
-    </style>
-  </ons-page>
-</template>
-
-<template id="criarConta.html">
-  <ons-page>
-        <ons-toolbar id="criarConta_">
-            <div class="left">
-                <ons-back-button>Criar Conta</ons-back-button>
-            </div>
-            <div class="center"></div>
-        </ons-toolbar>
-        <ons-list-header style="font-size: 30px;margin-top: 50px;">
-            
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="fa-user" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input id="new-nome" float placeholder="Nome"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input id="new-usuario" float placeholder="Usuário"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-email" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input id="new-email" float placeholder="E-mail"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-phone" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input type="number" id="new-celular" float placeholder="Celular" max="11"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-key" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input type="password" id="new-senha" float placeholder="Senha"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <ons-list-item class="input-items">
-                <div class="left">
-                    <ons-icon icon="md-key" class="list-item__icon"></ons-icon>
-                </div>
-                <label class="center">
-                    <ons-input type="password" id="new-confirmar-senha" float placeholder="Confirmar Senha"></ons-input>
-                </label>
-            </ons-list-item>
-
-            <p style="text-align: center">
-                <ons-button modifier="light" onclick="app.cadastrarUser()">Cadastrar</ons-button>
-            </p>
-        </ons-list-header>
-
-        
-    <script>
-        ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
-            this.querySelector('#criarConta_ div.center').textContent = 'Criar Conta';
-        }
-    </script>
-    <style>
-        .button-margin {
-            margin: 6px 0;
-        }
-
-        .intro {
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 40px;
-        }
-
-        ons-card {
-            cursor: pointer;
-            color: #704031;
-        }
-
-        .card__title,
-        .card--material__title {
-            font-size: 20px;
-        }
-
-        .text-input--material:focus {
-            background-image: linear-gradient(#704031, #704031), linear-gradient(to top, transparent 1px, #afafaf 1px);
-        }
-
-        .text-input--material__label--active {
-            color: #704031;
-        }
-
-        :checked + .switch--material__toggle > .switch--material__handle {
-            background-color: #704031;
-        }
-    </style>
-  </ons-page>
 </template>
 
 <!-- MODAL DE AGUARDE -->
@@ -358,7 +118,7 @@
         
     <script>
         ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
+            admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Max Score';
             var arr = localStorage.getItem('lista-score');
             console.log(arr)
@@ -419,7 +179,7 @@
         
     <script>
         ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
+            admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Ajuda';
             var arr = localStorage.getItem('lista-score');
             $("#maxScore").html(maxArray(JSON.parse(arr)));
@@ -473,7 +233,7 @@
 
     <script>
         ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
+            admob.interstitial.show();
             var dados = this.data.title.split('||'); 
             this.querySelector('#quiz_ div.center').textContent = dados[0];
             $('#acerto').html('Acertos: '+acertos);
