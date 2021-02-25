@@ -39,7 +39,7 @@
         <script>
           ons.getScriptPage().addEventListener('prechange', function(event) {
             if (event.target.matches('#appTabbar')) {
-                //admob.interstitial.show();
+                admob.interstitial.show();
               event.currentTarget.querySelector('#tabbar_ .center center').innerHTML = 'Quiz da Bíblia';
             }
           });
@@ -118,7 +118,7 @@
         
     <script>
         ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
+            admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Max Score';
             var arr = localStorage.getItem('lista-score');
             if (!arr) {
@@ -179,7 +179,7 @@
         
     <script>
         ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
+            admob.interstitial.show();
             this.querySelector('#score_ div.center').textContent = 'Ajuda';
             var arr = localStorage.getItem('lista-score');
             $("#maxScore").html(maxArray(JSON.parse(arr)));
@@ -233,7 +233,7 @@
 
     <script>
         ons.getScriptPage().onInit = function () {
-            //admob.interstitial.show();
+            admob.interstitial.show();
             var dados = this.data.title.split('||'); 
             this.querySelector('#quiz_ div.center').textContent = dados[0];
             $('#acerto').html('Acertos: '+acertos);

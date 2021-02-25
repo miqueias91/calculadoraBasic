@@ -67,9 +67,10 @@ var app = {
     .startInit("c890bf70-f20d-4d2d-ab10-4a75230489a2")   
     .handleNotificationOpened(function(jsonData) {
       var mensagem = JSON.parse(JSON.stringify(jsonData['notification']['payload']['additionalData']['mensagem']));
+      var titulo = JSON.parse(JSON.stringify(jsonData['notification']['payload']['additionalData']['titulo']));
       ons.notification.alert(
         mensagem,
-        {title: 'Mensagem'}
+        {title: titulo}
       );
     })
     .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
@@ -185,8 +186,8 @@ var app = {
               erros++
               //EXIBO A MENSAGEM DE ERRO 
               ons.notification.alert({
-                message: 'Resposta errada!',
-                title: 'Mensagem',
+                message: 'A resposta correta é: '+resposta,
+                title: 'Resposta errada!',
 
                 callback: function (index) {
                   if (0 == index) {
@@ -254,9 +255,6 @@ var app = {
               lista_score.push(acertos);
               localStorage.setItem("lista-score", JSON.stringify(lista_score));              
             }
-
-
-
             $('.quiz_').prop('checked', false);
             $('#acerto').html('Acertos: '+acertos);
             $('#erro').html('Erros: '+erros);
