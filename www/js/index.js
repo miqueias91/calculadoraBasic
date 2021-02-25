@@ -229,11 +229,7 @@ var app = {
                     if (num_perg < total_perguntas) {
                       app.buscaPergunta(num_perg);
                     }
-                    else{
-                      if (acertos > 0) {
-                        lista_score.push(acertos);
-                        localStorage.setItem("lista-score", JSON.stringify(lista_score));              
-                      }
+                    else{                  
                       ons.notification.alert({
                         message: 'Parabêns! Você chegou ao fim do quiz.<br><br>Sua pontuação: '+acertos,
                         title: 'Mensagem',
@@ -252,6 +248,15 @@ var app = {
             }
             currentId = 'quiz_';
             currentValue = '';
+
+
+            if (acertos > 0) {
+              lista_score.push(acertos);
+              localStorage.setItem("lista-score", JSON.stringify(lista_score));              
+            }
+
+
+
             $('.quiz_').prop('checked', false);
             $('#acerto').html('Acertos: '+acertos);
             $('#erro').html('Erros: '+erros);
@@ -453,6 +458,30 @@ var app = {
           'datacadastro': this.dateTime(),
           'ultimoacesso': this.dateTime(),
           'app': 'quiz',
+        },
+        error: function(e) {
+        },
+        success: function(a) {
+        },
+      });
+    }
+  },
+  cadastraScore: function() {
+    var uid = window.localStorage.getItem('uid');
+    var maxScore = null;
+    var arr = localStorage.getItem('lista-score');
+    if (arr) {
+        maxScore = maxArray(JSON.parse(arr));
+    }
+    if (uid) {
+      $.ajax({
+        url: "https://www.innovatesoft.com.br/webservice/app/cadastraScoreQuiz.php",
+        dataType: 'html',
+        type: 'POST',
+        data: {
+          'uid': uid,
+          'score': maxScore,
+          'dataregistro': this.dateTime()
         },
         error: function(e) {
         },
