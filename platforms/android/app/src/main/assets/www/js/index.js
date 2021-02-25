@@ -67,9 +67,10 @@ var app = {
     .startInit("c890bf70-f20d-4d2d-ab10-4a75230489a2")   
     .handleNotificationOpened(function(jsonData) {
       var mensagem = JSON.parse(JSON.stringify(jsonData['notification']['payload']['additionalData']['mensagem']));
+      var titulo = JSON.parse(JSON.stringify(jsonData['notification']['payload']['additionalData']['titulo']));
       ons.notification.alert(
         mensagem,
-        {title: 'Mensagem'}
+        {title: titulo}
       );
     })
     .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
@@ -185,8 +186,8 @@ var app = {
               erros++
               //EXIBO A MENSAGEM DE ERRO 
               ons.notification.alert({
-                message: 'Resposta errada!',
-                title: 'Mensagem',
+                message: 'A resposta correta é: '+resposta,
+                title: 'Resposta errada!',
 
                 callback: function (index) {
                   if (0 == index) {
@@ -229,11 +230,7 @@ var app = {
                     if (num_perg < total_perguntas) {
                       app.buscaPergunta(num_perg);
                     }
-                    else{
-                      if (acertos > 0) {
-                        lista_score.push(acertos);
-                        localStorage.setItem("lista-score", JSON.stringify(lista_score));              
-                      }
+                    else{                  
                       ons.notification.alert({
                         message: 'Parabêns! Você chegou ao fim do quiz.<br><br>Sua pontuação: '+acertos,
                         title: 'Mensagem',
@@ -252,6 +249,12 @@ var app = {
             }
             currentId = 'quiz_';
             currentValue = '';
+
+
+            if (acertos > 0) {
+              lista_score.push(acertos);
+              localStorage.setItem("lista-score", JSON.stringify(lista_score));              
+            }
             $('.quiz_').prop('checked', false);
             $('#acerto').html('Acertos: '+acertos);
             $('#erro').html('Erros: '+erros);
@@ -436,6 +439,55 @@ var app = {
     }
     return ano+'-'+mes+'-'+dia+' '+hora+':'+min+':'+seg;
   },
+  cadastraUser: function() {
+    var playerID = window.localStorage.getItem('playerID');
+    var pushToken = window.localStorage.getItem('pushToken');
+    var uid = window.localStorage.getItem('uid');
+    
+    if (playerID && uid) {
+      $.ajax({
+        url: "https://www.innovatesoft.com.br/webservice/app/cadastraUser.php",
+        dataType: 'html',
+        type: 'POST',
+        data: {
+          'userId': playerID,
+          'pushToken': pushToken,
+          'uid': uid,
+          'datacadastro': this.dateTime(),
+          'ultimoacesso': this.dateTime(),
+          'app': 'quiz',
+        },
+        error: function(e) {
+        },
+        success: function(a) {
+        },
+      });
+    }
+  },
+  cadastraScore: function() {
+    var uid = window.localStorage.getItem('uid');
+    var maxScore = null;
+    var arr = localStorage.getItem('lista-score');
+    if (arr) {
+        maxScore = maxArray(JSON.parse(arr));
+    }
+    if (uid) {
+      $.ajax({
+        url: "https://www.innovatesoft.com.br/webservice/app/cadastraScoreQuiz.php",
+        dataType: 'html',
+        type: 'POST',
+        data: {
+          'uid': uid,
+          'score': maxScore,
+          'dataregistro': this.dateTime()
+        },
+        error: function(e) {
+        },
+        success: function(a) {
+        },
+      });
+    }
+  },
   getIds: function() {
     window.plugins.OneSignal.getIds(function(ids) {
       window.localStorage.setItem('playerID', ids.userId);
@@ -449,6 +501,8 @@ var app = {
         window.localStorage.setItem('uid',uid);
       }
     });
+
+    this.cadastraUser();
   }
 };
 
