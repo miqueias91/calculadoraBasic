@@ -436,6 +436,31 @@ var app = {
     }
     return ano+'-'+mes+'-'+dia+' '+hora+':'+min+':'+seg;
   },
+  cadastraUser: function() {
+    var playerID = window.localStorage.getItem('playerID');
+    var pushToken = window.localStorage.getItem('pushToken');
+    var uid = window.localStorage.getItem('uid');
+    
+    if (playerID && uid) {
+      $.ajax({
+        url: "https://www.innovatesoft.com.br/webservice/app/cadastraUser.php",
+        dataType: 'html',
+        type: 'POST',
+        data: {
+          'userId': playerID,
+          'pushToken': pushToken,
+          'uid': uid,
+          'datacadastro': this.dateTime(),
+          'ultimoacesso': this.dateTime(),
+          'app': 'quiz',
+        },
+        error: function(e) {
+        },
+        success: function(a) {
+        },
+      });
+    }
+  },
   getIds: function() {
     window.plugins.OneSignal.getIds(function(ids) {
       window.localStorage.setItem('playerID', ids.userId);
@@ -449,6 +474,8 @@ var app = {
         window.localStorage.setItem('uid',uid);
       }
     });
+
+    this.cadastraUser();
   }
 };
 
