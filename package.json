@@ -1,6 +1,6 @@
 {
   "name": "com.phonegap.calculadorabasic",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "displayName": "Quiz da Bíblia",
   "cordova": {
     "platforms": [],
